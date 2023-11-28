@@ -3,7 +3,7 @@ import SideNav from "./layouts/SideNav"
 import Contact from "./layouts/Contact"
 import Home from "./layouts/Home"
 import Projects from "./layouts/Projects"
-import Work from "./layouts/Experience"
+import Experience from "./layouts/Experience"
 import AOS from "aos"
 import "aos/dist/aos.css"
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <div>
         <SideNav />
         <Home />
-        <Work />
+        <Experience />
         <Projects />
         <Contact />
       </div>
