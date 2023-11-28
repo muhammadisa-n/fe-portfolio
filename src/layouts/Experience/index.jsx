@@ -33,10 +33,13 @@ const Experience = () => {
     },
   ]
   return (
-    <div id="experience" className="max-w-[1040px] m-auto md:pl-20 p-4 py-16 ">
+    <div
+      id="experience"
+      className="max-w-[1040px] m-auto md:pl-20 p-4 py-16 md:pr-20 lg:pr-0  "
+    >
       <div>
         <h1 className="mb-10 text-4xl font-bold text-center text-primary_light dark:text-primary_dark">
-          Experience
+          Work Experience
         </h1>
         {dataExperience.map((item, idx) => (
           <ExperienceItem

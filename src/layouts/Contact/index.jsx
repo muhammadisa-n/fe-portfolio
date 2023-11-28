@@ -2,13 +2,17 @@ import React from "react"
 
 const Contact = () => {
   return (
-    <div id="contact" className="max-w-[1040px] m-auto md:pl-20 p-4 py-16 ">
+    <div
+      id="contact"
+      className="max-w-[1040px] m-auto md:pl-20 md:pr-20 lg:pr-0 p-4 py-16 "
+    >
       <h1 className="py-4 text-4xl font-bold text-center text-primary_light dark:text-primary_dark">
         Contact
       </h1>
       <form
-        action="https://getform.io/f/c13295af-a354-4ca5-b46e-3ea969329624"
-        method="POST"
+        // action="https://getform.io/f/c13295af-a354-4ca5-b46e-3ea969329624"
+        // method="POST"
+        action="/"
         encType="multipart/form-data"
       >
         <div className="grid w-full gap-4 py-2 md:grid-cols-2">
@@ -53,7 +57,7 @@ const Contact = () => {
             rows="10"
           ></textarea>
         </div>
-        <button className="w-full p-4 mt-4 font-semibold transition-all duration-300 rounded-lg text-dark bg-primary_light dark:text-light dark:bg-primary_dark hover:bg-primary_dark dark:hover:bg-primary_light ">
+        <button className="w-full p-4 mt-4 font-semibold transition-all duration-300 rounded-lg text-light bg-primary_light dark:text-light dark:bg-primary_dark hover:bg-primary_dark dark:hover:bg-primary_light ">
           Send Message
         </button>
       </form>

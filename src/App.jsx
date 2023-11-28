@@ -1,11 +1,15 @@
 import { useEffect } from "react"
-import SideNav from "./layouts/SideNav"
+import Header from "./components/Header"
 import Contact from "./layouts/Contact"
 import Home from "./layouts/Home"
 import Projects from "./layouts/Projects"
 import Experience from "./layouts/Experience"
 import AOS from "aos"
 import "aos/dist/aos.css"
+import AboutMe from "./layouts/AboutMe"
+import Footer from "./components/Footer"
+import Education from "./layouts/Education"
+import Skill from "./layouts/Skill"
 function App() {
   useEffect(() => {
     AOS.init()
@@ -13,11 +17,15 @@ function App() {
   return (
     <>
       <div>
-        <SideNav />
+        <Header />
         <Home />
-        <Experience />
+        <AboutMe />
+        <Skill />
         <Projects />
+        <Experience />
+        <Education />
         <Contact />
+        <Footer />
       </div>
     </>
   )

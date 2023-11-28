@@ -7,9 +7,12 @@ import {
 } from "react-icons/ai"
 import { GrProjects } from "react-icons/gr"
 import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md"
-import NavItemMobile from "../../components/NavItemMobile"
-import NavItem from "../../components/NavItem"
-const SideNav = () => {
+import { SiAboutdotme } from "react-icons/si"
+import { IoSchoolOutline } from "react-icons/io5"
+import { VscTools } from "react-icons/vsc"
+import NavItemMobile from "../NavItemMobile"
+import NavItem from "../NavItem"
+const Header = () => {
   const [nav, setNav] = useState(false)
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
@@ -45,10 +48,20 @@ const SideNav = () => {
       ),
     },
     {
-      title: "Experience",
-      linkTo: "experience",
+      title: "About Me",
+      linkTo: "aboutme",
       icon: (
-        <GrProjects
+        <SiAboutdotme
+          size={20}
+          className="text-primary_light dark:text-primary_dark"
+        />
+      ),
+    },
+    {
+      title: "Skill And Tools",
+      linkTo: "skills",
+      icon: (
+        <VscTools
           size={20}
           className="text-primary_light dark:text-primary_dark"
         />
@@ -65,6 +78,26 @@ const SideNav = () => {
       ),
     },
     {
+      title: "Experience",
+      linkTo: "experience",
+      icon: (
+        <GrProjects
+          size={20}
+          className="text-primary_light dark:text-primary_dark"
+        />
+      ),
+    },
+    {
+      title: "Education",
+      linkTo: "education",
+      icon: (
+        <IoSchoolOutline
+          size={20}
+          className="text-primary_light dark:text-primary_dark"
+        />
+      ),
+    },
+    {
       title: "Contact",
       linkTo: "contact",
       icon: (
@@ -75,6 +108,8 @@ const SideNav = () => {
       ),
     },
   ]
+  const nav1 = dataNav.slice(0, 4)
+  const nav2 = dataNav.slice(4, 8)
   return (
     <div>
       <AiOutlineMenu
@@ -97,7 +132,7 @@ const SideNav = () => {
           {theme === "dark" ? (
             <button
               onClick={darkmodeToggle}
-              className="w-[75%] flex justify-center items-center  shadow-lg bg-light shadow-secondary_dark dark:shadow-secondary_light m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-200 rounded-full font-semibold"
+              className="w-[75%] flex justify-center items-center  shadow-lg bg-light shadow-secondary_dark dark:shadow-secondary_light m-2 p-2 cursor-pointer hover:scale-110 ease-in duration-200 rounded-full font-semibold "
             >
               <MdDarkMode
                 size={20}
@@ -108,7 +143,7 @@ const SideNav = () => {
           ) : (
             <button
               onClick={darkmodeToggle}
-              className="w-[75%] flex justify-center items-center  shadow-lg bg-light shadow-secondary_dark dark:shadow-secondary_light m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-200 rounded-full font-semibold"
+              className="w-[75%] flex justify-center items-center  shadow-lg bg-light shadow-secondary_dark dark:shadow-secondary_light m-2 p-2 cursor-pointer hover:scale-110 ease-in duration-200 rounded-full font-semibold"
             >
               <MdOutlineDarkMode
                 size={20}
@@ -121,9 +156,41 @@ const SideNav = () => {
       ) : (
         ""
       )}
-      <div className="md:block hidden fixed top-[25%] z-10">
+      <div className="md:block hidden fixed top-[7%] z-10">
         <div className="flex flex-col">
           {dataNav.map((item, index) => (
+            <NavItem key={index} linkTitle={item.title} linkTo={item.linkTo}>
+              {item.icon}
+            </NavItem>
+          ))}
+        </div>
+        {theme === "dark" ? (
+          <button
+            onClick={darkmodeToggle}
+            title="Light Mode"
+            className="p-4 m-2 duration-300 ease-in bg-gray-100 rounded-full shadow-lg cursor-pointer shadow-gray-400 hover:scale-110"
+          >
+            <MdDarkMode
+              size={20}
+              className="text-primary_light dark:text-primary_dark"
+            />
+          </button>
+        ) : (
+          <button
+            onClick={darkmodeToggle}
+            title="Dark Mode"
+            className="p-4 m-2 duration-300 ease-in bg-gray-100 rounded-full shadow-lg cursor-pointer shadow-gray-400 hover:scale-110"
+          >
+            <MdOutlineDarkMode
+              size={20}
+              className="text-primary_light dark:text-primary_dark"
+            />
+          </button>
+        )}
+      </div>
+      {/* <div className="md:block hidden fixed top-[25%] right-0 z-10">
+        <div className="flex flex-col">
+          {nav2.map((item, index) => (
             <NavItem key={index} linkTitle={item.title} linkTo={item.linkTo}>
               {item.icon}
             </NavItem>
@@ -152,9 +219,9 @@ const SideNav = () => {
             </button>
           )}
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
 
-export default SideNav
+export default Header

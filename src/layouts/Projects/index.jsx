@@ -6,15 +6,15 @@ import porto3 from "../../assets/porto3.png"
 import porto4 from "../../assets/porto4.png"
 const Projects = () => {
   return (
-    <div id="projects" className="max-w-[1040px] m-auto md:pl-20 p-4 py-16">
+    <div
+      id="projects"
+      className="max-w-[1040px] m-auto md:pl-20 p-4 py-16 md:pr-20 lg:pr-0"
+    >
       <h1 className="text-4xl font-bold text-center text-primary_light dark:text-primary_dark">
         Projects
       </h1>
       <p className="py-8 text-center text-dark dark:text-light">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus
-        alias corrupti a quos modi, suscipit amet ullam quis magnam repellendus,
-        maiores, natus praesentium debitis expedita consectetur laudantium
-        similique ex rerum!
+        Here are some of the recent projects I have worked on
       </p>
       <div className="grid gap-12 sm:grid-cols-2">
         <ProjectItem img={porto1} title="porto title" />
