@@ -1,9 +1,9 @@
 import { useEffect } from "react"
-import Contact from "./components/Contact"
-import Main from "./components/Main"
-import Projects from "./components/Projects"
-import SideNav from "./components/SideNav"
-import Work from "./components/Work"
+import SideNav from "./layouts/SideNav"
+import Contact from "./layouts/Contact"
+import Home from "./layouts/Home"
+import Projects from "./layouts/Projects"
+import Work from "./layouts/Experience"
 import AOS from "aos"
 import "aos/dist/aos.css"
 function App() {
@@ -14,7 +14,7 @@ function App() {
     <>
       <div>
         <SideNav />
-        <Main />
+        <Home />
         <Work />
         <Projects />
         <Contact />

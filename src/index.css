@@ -6,8 +6,12 @@
   scrool-behavior: smooth;
 }
 body {
-  @apply dark:bg-[#001b5e];
+  @apply dark:bg-dark;
+  @apply font-inter;
 }
 .active {
-  @apply bg-[#001b5e] text-slate-200 transition duration-300;
+  @apply bg-primary_light text-dark dark:bg-primary_dark dark:text-light transition duration-100 font-semibold;
+}
+.active-mobile {
+  @apply bg-primary_dark text-dark dark:bg-primary_light dark:text-light transition duration-100 font-semibold;
 }

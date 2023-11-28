@@ -1,8 +1,8 @@
 import React from "react"
-import WorkItem from "../WorkItem"
+import ExperienceItem from "../../components/ExperienceItem"
 
-const Work = () => {
-  const data = [
+const Experience = () => {
+  const dataExperience = [
     {
       year: 2020,
       title: "Job 1",
@@ -33,11 +33,13 @@ const Work = () => {
     },
   ]
   return (
-    <div id="work" className="max-w-[1040px] m-auto md:pl-20 p-4 py-16 ">
+    <div id="experience" className="max-w-[1040px] m-auto md:pl-20 p-4 py-16 ">
       <div>
-        <h1 className="text-4xl font-bold text-center text-[#001b5e]">Work</h1>
-        {data.map((item, idx) => (
-          <WorkItem
+        <h1 className="mb-10 text-4xl font-bold text-center text-primary_light dark:text-primary_dark">
+          Experience
+        </h1>
+        {dataExperience.map((item, idx) => (
+          <ExperienceItem
             key={idx}
             year={item.year}
             title={item.title}
@@ -50,4 +52,4 @@ const Work = () => {
   )
 }
 
-export default Work
+export default Experience
