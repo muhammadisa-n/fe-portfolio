@@ -5,3 +5,9 @@
 * {
   scrool-behavior: smooth;
 }
+body {
+  @apply dark:bg-[#001b5e];
+}
+.active {
+  @apply bg-[#001b5e] text-slate-200 transition duration-300;
+}

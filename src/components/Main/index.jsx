@@ -9,19 +9,19 @@ const Main = () => {
       <img
         src={HeroImage}
         alt="HeroImage"
-        className="w-full h-screen object-cover   hidden lg:block lg:scale-x-[-1]"
+        className="w-full h-screen object-cover hidden md:block md:scale-x-[-1]"
       />
       <img
         src={HeroImage2}
         alt="HeroImage"
-        className="w-full h-screen block lg:hidden   object-cover lg:object-right  lg:scale-x-[-1"
+        className="w-full h-screen block md:hidden object-cover md:object-right  lg:scale-x-[-1"
       />
-      <div className="w-full h-screen absolute top-0 left-0  bg-white/50 ">
+      <div className="absolute top-0 left-0 w-full h-screen bg-white/50 dark:bg-[#001b5e]/50">
         <div className="max-w-[700px] m-auto h-full flex flex-col justify-center lg:items-start items-center">
-          <h1 className="sm:text-5xl text-4xl font-bold text-gray-800 ">
+          <h1 className="text-4xl font-bold text-gray-800 sm:text-5xl ">
             I'm Muhammad Isa
           </h1>
-          <h2 className="flex sm:text-3xl text-2xl pt-4 text-gray-800">
+          <h2 className="flex pt-4 text-2xl text-gray-800 sm:text-3xl">
             I'm a
             <TypeAnimation
               sequence={[
