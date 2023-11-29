@@ -1,5 +1,3 @@
-import React from "react"
-
 const ProjectItem = ({ img, title, type_project }) => {
   return (
     <div className="relative flex items-center justify-center w-full h-auto transition duration-300 ease-in shadow-lg shadow-secondary_light rounded-xl group dark:shadow-secondary_dark hover:bg-gradient-to-r from-light to-primary_dark">

@@ -1,4 +1,3 @@
-import React from "react"
 import EducationItem from "../../components/EducationItem"
 
 const Education = () => {
@@ -16,6 +15,7 @@ const Education = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fuga harum blanditiis maiores earum aliquam error eligendi corrupti neque, hic nam ullam rem numquam, dicta doloribus modi consectetur nihil molestias!",
     },
   ]
+
   return (
     <div
       id="education"

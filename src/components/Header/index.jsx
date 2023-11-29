@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import {
   AiOutlineHome,
   AiOutlineMenu,
@@ -108,8 +108,8 @@ const Header = () => {
       ),
     },
   ]
-  const nav1 = dataNav.slice(0, 4)
-  const nav2 = dataNav.slice(4, 8)
+  // const nav1 = dataNav.slice(0, 4)
+  // const nav2 = dataNav.slice(4, 8)
   return (
     <div>
       <AiOutlineMenu

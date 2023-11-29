@@ -1,5 +1,3 @@
-import React from "react"
-
 const HeroList = ({ heroImage1, heroImage2 }) => {
   return (
     <>

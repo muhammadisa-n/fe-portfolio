@@ -1,8 +1,11 @@
-import React from "react"
-
 const ExperienceItem = ({ year, title, details, duration }) => {
   return (
-    <ul className="relative flex flex-col border-l md:flex-row border-dark dark:border-light">
+    <ul
+      className="relative flex flex-col border-l md:flex-row border-dark dark:border-light"
+      data-aos="fade-down"
+      data-aos-duration={1500}
+      data-aos-delay={500}
+    >
       <li className="mb-10 ml-4">
         <div className="absolute w-3 h-3 bg-primary_light rounded-full mt-1.5 -left-1.5 border-primary_light dark:bg-primary_dark dark:border-primary_dark" />
         <p className="flex flex-row flex-wrap items-center justify-start gap-4 text-xs md:text-sm">

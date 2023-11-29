@@ -1,4 +1,4 @@
-import React from "react"
+
 import { SocialList } from "../../components/SocialList"
 import { FaInstagram, FaLinkedinIn, FaTwitter, FaGithub } from "react-icons/fa"
 const AboutMe = () => {
@@ -39,7 +39,12 @@ const AboutMe = () => {
       </h1>
       <div className="container">
         <div className="flex flex-wrap">
-          <div className="w-full px-4 mb-10 lg:w-1/2">
+          <div
+            className="w-full px-4 mb-10 lg:w-1/2"
+            data-aos="fade-right"
+            data-aos-duration={1000}
+            data-aos-delay={500}
+          >
             <h4 className="mb-3 text-lg font-bold uppercase text-primary_light dark:text-primary_dark">
               About Me
             </h4>
@@ -52,17 +57,19 @@ const AboutMe = () => {
               building APIs using Flask and creating websites using Laravel.
             </p>
           </div>
-          <div className="w-full px-4 mt-1 lg:w-1/2">
+          <div
+            className="w-full px-4 mt-1 lg:w-1/2"
+            data-aos="fade-left"
+            data-aos-duration={1000}
+            data-aos-delay={500}
+          >
             <h4 className="mb-3 text-lg font-bold uppercase text-primary_light dark:text-primary_dark">
               Connect With Me
             </h4>
             <p className="max-w-xl font-medium text-basetext-dark dark:text-light lg:text-lg">
-              I'm delighted to connect with you and discuss everything related
-              to technology, software development, or any other interesting
-              topics. Please feel free to contact me through the social media
-              profiles listed below. Let's collaborate, share ideas, and build
-              beneficial relationships together! I'm looking forward to hearing
-              from you soon.
+              {
+                "I'm delighted to connect with you and discuss everything related to technology, software development, or any other interesting topics. Please feel free to contact me through the social media profiles listed below.Let's collaborate, share ideas, and build beneficial relationships together! I'm looking forward to hearing from you soon."
+              }
             </p>
             <div className="flex items-center mt-3 dark:text-white">
               {socialData.map((item, index) => (

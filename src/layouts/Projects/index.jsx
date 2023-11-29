@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+// import  { useState } from "react"
 import ProjectItem from "../../components/ProjectItem"
 import porto1 from "../../assets/clone_trello.png"
 import porto2 from "../../assets/hackjog.png"
@@ -6,7 +6,7 @@ import porto3 from "../../assets/digital-library.png"
 import porto4 from "../../assets/crime-detection.png"
 import porto5 from "../../assets/ratetol.png"
 const Projects = () => {
-  const [showModal, setShowModal] = useState(false)
+  // const [showModal, setShowModal] = useState(false)
   const dataProject = [
     {
       id: 1,
