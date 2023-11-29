@@ -4,29 +4,8 @@ import ExperienceItem from "../../components/ExperienceItem"
 const Experience = () => {
   const dataExperience = [
     {
-      year: 2020,
-      title: "Job 1",
-      duration: "3 Month",
-      details:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fuga harum blanditiis maiores earum aliquam error eligendi corrupti neque, hic nam ullam rem numquam, dicta doloribus modi consectetur nihil molestias!",
-    },
-    {
-      year: 2024,
-      title: "Job 2",
-      duration: "3 Month",
-      details:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fuga harum blanditiis maiores earum aliquam error eligendi corrupti neque, hic nam ullam rem numquam, dicta doloribus modi consectetur nihil molestias!",
-    },
-    {
       year: 2023,
-      title: "Job 3",
-      duration: "3 Month",
-      details:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fuga harum blanditiis maiores earum aliquam error eligendi corrupti neque, hic nam ullam rem numquam, dicta doloribus modi consectetur nihil molestias!",
-    },
-    {
-      year: 2023,
-      title: "Job 3",
+      title: "HackGov - FrontEnd Developer",
       duration: "3 Month",
       details:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fuga harum blanditiis maiores earum aliquam error eligendi corrupti neque, hic nam ullam rem numquam, dicta doloribus modi consectetur nihil molestias!",

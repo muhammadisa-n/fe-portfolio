@@ -31,6 +31,9 @@ const Skill = () => {
         name: "PHP",
       },
       {
+        name: "laravel",
+      },
+      {
         name: "NodeJs",
       },
       {

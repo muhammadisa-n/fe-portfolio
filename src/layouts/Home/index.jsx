@@ -1,5 +1,5 @@
 import React from "react"
-import HeroImage1 from "../../assets/hero-image.jpg"
+import HeroImage1 from "../../assets/hero1.jpg"
 import HeroImage2 from "../../assets/hero2.jpg"
 import { TypeAnimation } from "react-type-animation"
 import { FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa"

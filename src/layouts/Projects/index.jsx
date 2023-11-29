@@ -1,10 +1,45 @@
-import React from "react"
+import React, { useState } from "react"
 import ProjectItem from "../../components/ProjectItem"
-import porto1 from "../../assets/porto.png"
-import porto2 from "../../assets/porto2.png"
-import porto3 from "../../assets/porto3.png"
-import porto4 from "../../assets/porto4.png"
+import porto1 from "../../assets/clone_trello.png"
+import porto2 from "../../assets/hackjog.png"
+import porto3 from "../../assets/digital-library.png"
+import porto4 from "../../assets/crime-detection.png"
+import porto5 from "../../assets/ratetol.png"
 const Projects = () => {
+  const [showModal, setShowModal] = useState(false)
+  const dataProject = [
+    {
+      id: 1,
+      title: "Clone Trello App",
+      type_project: "Personal Project",
+      img: porto1,
+    },
+    {
+      id: 2,
+      title: "Hackjog ",
+      type_project: "Company Project",
+      img: porto2,
+    },
+    {
+      id: 3,
+      title: "Digital Library",
+      type_project: "Personal Project",
+      img: porto3,
+    },
+    {
+      id: 4,
+      title: "Crime Detection Api",
+      type_project: "Personal Project",
+      img: porto4,
+    },
+    {
+      id: 4,
+      title: "Determining Toll Rates Based on Vehicle Types",
+      type_project: "Personal Project",
+      img: porto5,
+    },
+  ]
+  const page1 = dataProject.slice(0, 4)
   return (
     <div
       id="projects"
@@ -17,10 +52,14 @@ const Projects = () => {
         Here are some of the recent projects I have worked on
       </p>
       <div className="grid gap-12 sm:grid-cols-2">
-        <ProjectItem img={porto1} title="porto title" />
-        <ProjectItem img={porto2} title="porto title" />
-        <ProjectItem img={porto3} title="porto title" />
-        <ProjectItem img={porto4} title="porto title" />
+        {page1.map((item) => (
+          <ProjectItem
+            img={item.img}
+            title={item.title}
+            type_project={item.type_project}
+            key={item.id}
+          />
+        ))}
       </div>
     </div>
   )
