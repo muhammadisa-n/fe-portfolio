@@ -1,5 +1,3 @@
-import React from "react"
-import { BsCodeSlash } from "react-icons/bs"
 import BackendIcon from "../../assets/backend.png"
 import FrontendIcon from "../../assets/frontend.png"
 import OthersIcon from "../../assets/others.png"
