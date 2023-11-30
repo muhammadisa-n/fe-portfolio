@@ -1,4 +1,4 @@
-const ProjectItem = ({ img, title, type_project }) => {
+const ProjectItem = ({ img, title, type_project, handleClick }) => {
   return (
     <div className="relative flex items-center justify-center w-full h-auto transition duration-300 ease-in shadow-lg shadow-secondary_light rounded-xl group dark:shadow-secondary_dark hover:bg-gradient-to-r from-light to-primary_dark">
       <img
@@ -13,7 +13,7 @@ const ProjectItem = ({ img, title, type_project }) => {
         <p className="pt-2 pb-4 font-semibold text-center text-light dark:text-dark">
           {type_project}
         </p>
-        <a href="/">
+        <a onClick={handleClick}>
           <p className="p-1 text-lg font-bold text-center rounded-full cursor-pointer bg-primary_light text-light dark:text-light dark:bg-primary_dark">
             More Info
           </p>
