@@ -6,18 +6,19 @@ const ProjectItem = ({ img, title, type_project, handleClick }) => {
         alt={title}
         className="transition-all duration-300 rounded-xl group-hover:opacity-10"
       />
-      <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-        <h3 className="text-2xl font-bold tracking-wider text-center text-dark dark:text-light">
+      <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] overflow-hidden">
+        <h3 className="mt-2 text-base font-bold tracking-wider text-center lg:text-2xl text-dark dark:text-light md:text-lg ">
           {title}
         </h3>
-        <p className="pt-2 pb-4 font-semibold text-center text-light dark:text-dark">
+        <p className="mt-2 mb-4 font-semibold text-center text-light dark:text-dark">
           {type_project}
         </p>
-        <a onClick={handleClick}>
-          <p className="p-1 text-lg font-bold text-center rounded-full cursor-pointer bg-primary_light text-light dark:text-light dark:bg-primary_dark">
-            More Info
-          </p>
-        </a>
+        <button
+          className="w-full px-4 mx-auto mb-5 rounded-full bg-primary_light"
+          onClick={handleClick}
+        >
+          More Info
+        </button>
       </div>
     </div>
   )

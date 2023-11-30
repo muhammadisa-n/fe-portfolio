@@ -90,7 +90,7 @@ const Projects = () => {
         Here are some of the recent projects I have worked on
       </p>
       <div className="grid gap-12 sm:grid-cols-2">
-        {page1.map((item) => (
+        {dataProject.map((item) => (
           <ProjectItem
             img={item.img}
             title={item.title}
@@ -124,15 +124,14 @@ const Projects = () => {
                 {selectedData.details}
               </p>
               <h1 className="text-2xl font-semibold">Technology Used</h1>
-              <div className="flex flex-wrap items-center justify-start mb-10 ">
+              <div className="flex flex-wrap items-center justify-start mb-10">
                 {selectedData.tech_use.map((item, index) => (
-                  <a
+                  <i
                     key={index}
-                    href="/"
-                    className="max-w-[100px] mx-2 py-2   transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-4 xl:mx-6 "
+                    className="max-w-[60px] md:max-w-[100px] mx-2 py-2 text-dark transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-4"
                   >
-                    <img src={item} alt="HTML" />
-                  </a>
+                    <img src={item} alt={item} />
+                  </i>
                 ))}
               </div>
               <div className="my-10">
