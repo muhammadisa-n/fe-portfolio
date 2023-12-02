@@ -3,8 +3,8 @@ const SkillList = ({ imageUrl, title, data }) => {
     <div
       className="relative w-full px-5 py-4 mt-20 border shadow-sm dark:border-secondary_dark border-secondary_light"
       data-aos="zoom-in"
-      data-aos-duration={1000}
-      data-aos-delay={500}
+      data-aos-duration={500}
+      data-aos-delay={400}
     >
       <div className="w-20 h-20 absolute flex text-center -top-12 lg:right-[35%] rounded-full bg-primary_light hover:opacity-50 transition-all ease-in duration-200 dark:bg-primary_dark md:right-[31%] right-[38%]">
         <img src={imageUrl} alt={`${title} Icon Image`} className="p-4" />
