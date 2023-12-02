@@ -10,11 +10,11 @@ const ProjectItem = ({ img, title, type_project, handleClick }) => {
         <h3 className="mt-2 text-base font-bold tracking-wider text-center lg:text-2xl text-dark dark:text-light md:text-lg ">
           {title}
         </h3>
-        <p className="mt-2 mb-4 font-semibold text-center text-light dark:text-dark">
+        <p className="mt-2 mb-4 font-semibold text-center text-primary_light dark:text-primary_dark font-pacifico">
           {type_project}
         </p>
         <button
-          className="w-full px-4 mx-auto mb-5 rounded-full bg-primary_light"
+          className="hidden w-full px-4 mx-auto mb-5 rounded-full md:block bg-primary_light text-dark dark:bg-primary_dark dark:text-light"
           onClick={handleClick}
         >
           More Info

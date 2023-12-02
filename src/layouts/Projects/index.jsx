@@ -16,8 +16,7 @@ import phpImage from "../../assets/php.png"
 import pythonImage from "../../assets/python.png"
 import flaskImage from "../../assets/flask.png"
 import { IoMdClose } from "react-icons/io"
-import { useEffect, useState } from "react"
-import { data } from "autoprefixer"
+import { useState } from "react"
 const Projects = () => {
   const dataProject = [
     {
@@ -27,7 +26,22 @@ const Projects = () => {
       img: porto1,
       details:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Dolores atque sapiente labore fugiat, soluta optio rerum deserunt quisquam odio? Commodi, perferendis ab sunt accusamus voluptatibus dolore optio ex quis fuga sit distinctio similique incidunt itaque voluptatum quaerat? Perspiciatis, quia labore aspernatur temporibus numquam voluptas sed, atque perferendis incidunt accusamus earum praesentium doloremque consequuntur iste ad impedit molestiae repudiandae.",
-      tech_use: [reactImage, expressImage, mysqlImage],
+      tech_use: [
+        {
+          name: "ReactJs",
+          img_url: reactImage,
+        },
+        {
+          name: "ExpressJs",
+          img_url: expressImage,
+        },
+        {
+          name: "MySQL",
+          img_url: mysqlImage,
+        },
+      ],
+      link_project: "https://github.com/muhammadisa226/fe-clone-trello-app",
+      link_demo: false,
     },
 
     {
@@ -37,7 +51,22 @@ const Projects = () => {
       img: porto2,
       details:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Dolores atque sapiente labore fugiat, soluta optio rerum deserunt quisquam odio? Commodi,.",
-      tech_use: [vueImage, expressImage, mysqlImage],
+      tech_use: [
+        {
+          name: "VueJs",
+          img_url: vueImage,
+        },
+        {
+          name: "expressJs",
+          img_url: expressImage,
+        },
+        {
+          name: "MySQL",
+          img_url: mysqlImage,
+        },
+      ],
+      link_project: "https://github.com/muhammadisa226/hackjog-landingpage",
+      link_demo: false,
     },
     {
       id: 3,
@@ -46,7 +75,23 @@ const Projects = () => {
       img: porto3,
       details:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Dolores atque sapiente labore fugiat, soluta optio rerum deserunt quisquam odio? Commodi,.",
-      tech_use: [phpImage, laravelImage, mysqlImage],
+      tech_use: [
+        {
+          name: "PHP",
+          img_url: phpImage,
+        },
+        {
+          name: "Laravel",
+          img_url: laravelImage,
+        },
+        {
+          name: "MySQL",
+          img_url: mysqlImage,
+        },
+      ],
+      link_project:
+        "https://github.com/muhammadisa226/Digital-Library-Laravel-10",
+      link_demo: false,
     },
     {
       id: 4,
@@ -55,7 +100,26 @@ const Projects = () => {
       img: porto4,
       details:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Dolores atque sapiente labore fugiat, soluta optio rerum deserunt quisquam odio? Commodi,Lorem ipsum dolor sit amet, consectetur adipisicing elit.Dolores atque sapiente labore fugiat, soluta optio rerum deserunt quisquam odio? Commodi,.",
-      tech_use: [flutterImage, pythonImage, flaskImage, mysqlImage],
+      tech_use: [
+        {
+          name: "Flutter",
+          img_url: flutterImage,
+        },
+        {
+          name: "Python",
+          img_url: pythonImage,
+        },
+        {
+          name: "Flask",
+          img_url: flaskImage,
+        },
+        {
+          name: "MySQL",
+          img_url: mysqlImage,
+        },
+      ],
+      link_project: "https://github.com/muhammadisa226/crime-detection-api.git",
+      link_demo: false,
     },
     {
       id: 5,
@@ -64,19 +128,39 @@ const Projects = () => {
       img: porto5,
       details:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Dolores atque sapiente labore fugiat, soluta optio rerum deserunt quisquam odio? Commodi,Lorem ipsum dolor sit amet, consectetur adipisicing elit.Dolores atque sapiente labore fugiat, soluta optio rerum deserunt quisquam odio? Commodi,.",
-      tech_use: [flutterImage, pythonImage, flaskImage, mysqlImage],
+      tech_use: [
+        {
+          name: "Flutter",
+          img_url: flutterImage,
+        },
+        {
+          name: "Python",
+          img_url: pythonImage,
+        },
+        {
+          name: "Flask",
+          img_url: flaskImage,
+        },
+        {
+          name: "MySQL",
+          img_url: mysqlImage,
+        },
+      ],
+      link_project: "https://github.com/muhammadisa226/RateTol-Flask.git",
+      link_demo: false,
     },
   ]
   const [selectedData, setSelectedData] = useState(null)
-  const [showModal, setShowModal] = useState(false)
+  const [showModalDetail, setShowModaDetail] = useState(false)
+  const [showModalAllProject, setShowModalAllProject] = useState(false)
   const showSingleData = (data) => {
-    setShowModal(true)
+    setShowModaDetail(true)
     setSelectedData(data)
   }
-  const closeModal = () => {
-    setShowModal(false)
-    setSelectedData(null)
+  const handleShowAllProjects = () => {
+    setShowModalAllProject(true)
   }
+
   const page1 = dataProject.slice(0, 4)
   return (
     <div
@@ -90,7 +174,7 @@ const Projects = () => {
         Here are some of the recent projects I have worked on
       </p>
       <div className="grid gap-12 sm:grid-cols-2">
-        {dataProject.map((item) => (
+        {page1.map((item) => (
           <ProjectItem
             img={item.img}
             title={item.title}
@@ -100,54 +184,130 @@ const Projects = () => {
           />
         ))}
       </div>
-      {showModal && (
-        <div className="h-screen fixed inset-0 flex items-center justify-center bg-white dark:bg-dark bg-opacity-30 backdrop-blur z-[10] overflow-y-auto transition-all ease-in-out duration-500">
-          <div className="container relative pt-36">
-            <div className="md:w-[500px] w-[300px] px-4 mx-auto ">
-              <img
-                src={selectedData.img}
-                alt={selectedData.img}
-                className="w-full mx-auto mt-28 md:mt-0"
-              />
-              <div
-                className="absolute lg:right-0 right-5 top-[25%]  md:top-[15%] text-light cursor-pointer md:right-[5%]"
-                onClick={closeModal}
+      {showModalDetail && (
+        <div className="h-screen fixed inset-0 flex items-center justify-center bg-light dark:bg-dark bg-opacity-50 dark:bg-opacity-50 backdrop-blur z-[10] overflow-y-auto transition-all ease-in-out duration-500">
+          <div className="relative px-4 pt-4 my-10">
+            <h1 className="text-4xl font-bold ml-14 md:ml-0 text-dark dark:text-light">
+              {selectedData.title}
+            </h1>
+            <button
+              onClick={() => setShowModaDetail(false)}
+              className="absolute top-0 right-0 hidden px-1 py-1 rounded-full bg-primary_light text-light md:block"
+            >
+              <IoMdClose size={25} className="text-dark dark:text-light" />
+            </button>
+            <div className="mt-4 ml-14 md:ml-0">
+              <a
+                href={selectedData.link_project}
+                className="px-2 py-1 cursor-pointer bg-primary_light text-light dark:bg-primary_dark"
               >
-                <IoMdClose size={30} className="text-dark dark:text-light" />
-              </div>
-            </div>
-            <div className="w-full px-4 mx-auto mt-10 mb-4 text-dark dark:text-light">
-              <h1 className="mb-10 text-2xl font-semibold">
-                Project Background
-              </h1>
-              <p className="mb-6 text-base font-medium">
-                {selectedData.details}
-              </p>
-              <h1 className="text-2xl font-semibold">Technology Used</h1>
-              <div className="flex flex-wrap items-center justify-start mb-10">
-                {selectedData.tech_use.map((item, index) => (
-                  <i
-                    key={index}
-                    className="max-w-[60px] md:max-w-[100px] mx-2 py-2 text-dark transition duration-300 hover:grayscale-0 hover:opacity-100 lg:mx-4"
-                  >
-                    <img src={item} alt={item} />
-                  </i>
-                ))}
-              </div>
-              <div className="my-10">
+                Link Project
+              </a>
+              {selectedData.link_demo ? (
                 <a
-                  href=""
-                  className="p-3 mt-6 font-semibold rounded-full bg-primary_light hover:bg-primary_dark ring-1 text-dark"
-                >
-                  Link Project
-                </a>
-                <a
-                  href=""
-                  className="p-3 mx-6 mt-6 font-semibold rounded-full bg-primary_light hover:bg-primary_dark ring-1 text-dark"
+                  href="/"
+                  className="px-2 py-1 ml-4 cursor-pointer bg-primary_light text-light dark:bg-primary_dark"
                 >
                   Live Demo
                 </a>
-              </div>
+              ) : (
+                <a className="px-2 py-1 ml-4 cursor-not-allowed bg-slate-600 text-light disabled dark:bg-slate-400">
+                  Live Demo
+                </a>
+              )}
+            </div>
+
+            <div className="mt-10 text-xl font-semibold text-dark dark:text-light ml-14 md:ml-0">
+              <p>Technology Used</p>
+            </div>
+            <div className="flex gap-2 px-4 pt-4 overflow-x-auto text-color-primary">
+              {selectedData.tech_use.map((tech, index) => (
+                <div
+                  className="flex flex-col items-center justify-center p-2 border rounded w-36 border-primary_light dark:border-primary_dark"
+                  key={index}
+                >
+                  <img
+                    src={tech.img_url}
+                    alt={tech.img_url}
+                    className="w-[60px]"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-2 px-4 pt-4 text-color-primary sm:flex-nowrap">
+              <img
+                src={selectedData.img}
+                alt={selectedData.img}
+                className="object-cover  rounded w-[500px] h-[250px] "
+              />
+              <p className="text-dark dark:text-light2">
+                {selectedData.details}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+      {showModalAllProject && (
+        <div className="h-screen fixed inset-0 flex items-center justify-center bg-light dark:bg-dark bg-opacity-50 dark:bg-opacity-50 backdrop-blur z-[10] overflow-y-auto transition-all ease-in-out duration-500">
+          <div className="relative px-4 pt-4 my-10">
+            <h1 className="text-4xl font-bold ml-14 md:ml-0 text-dark dark:text-light">
+              {selectedData.title}
+            </h1>
+            <button
+              onClick={() => setShowModaDetail(false)}
+              className="absolute top-0 right-0 hidden px-1 py-1 rounded-full bg-primary_light text-light md:block"
+            >
+              <IoMdClose size={25} className="text-dark dark:text-light" />
+            </button>
+            <div className="mt-4 ml-14 md:ml-0">
+              <a
+                href={selectedData.link_project}
+                className="px-2 py-1 cursor-pointer bg-primary_light text-light dark:bg-primary_dark"
+              >
+                Link Project
+              </a>
+              {selectedData.link_demo ? (
+                <a
+                  href="/"
+                  className="px-2 py-1 ml-4 cursor-pointer bg-primary_light text-light dark:bg-primary_dark"
+                >
+                  Live Demo
+                </a>
+              ) : (
+                <a className="px-2 py-1 ml-4 cursor-not-allowed bg-slate-600 text-light disabled dark:bg-slate-400">
+                  Live Demo
+                </a>
+              )}
+            </div>
+
+            <div className="mt-10 text-xl font-semibold text-dark dark:text-light ml-14 md:ml-0">
+              <p>Technology Used</p>
+            </div>
+            <div className="flex gap-2 px-4 pt-4 overflow-x-auto text-color-primary">
+              {selectedData.tech_use.map((tech, index) => (
+                <div
+                  className="flex flex-col items-center justify-center p-2 border rounded w-36 border-primary_light dark:border-primary_dark"
+                  key={index}
+                >
+                  <img
+                    src={tech.img_url}
+                    alt={tech.img_url}
+                    className="w-[60px]"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-2 px-4 pt-4 text-color-primary sm:flex-nowrap">
+              <img
+                src={selectedData.img}
+                alt={selectedData.img}
+                className="object-cover  rounded w-[500px] h-[250px] "
+              />
+              <p className="text-dark dark:text-light2">
+                {selectedData.details}
+              </p>
             </div>
           </div>
         </div>

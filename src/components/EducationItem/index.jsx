@@ -3,8 +3,8 @@ const EducationItem = ({ year, title, details }) => {
     <ul
       className="relative flex flex-col border-l md:flex-row border-dark dark:border-light"
       data-aos="fade-down"
-      data-aos-duration={1500}
-      data-aos-delay={500}
+      data-aos-duration={1000}
+      data-aos-delay={700}
     >
       <li className="mb-10 ml-4 ">
         <div className="absolute w-3 h-3 bg-primary_light rounded-full mt-1.5 -left-1.5 border-primary_light dark:bg-primary_dark dark:border-primary_dark" />

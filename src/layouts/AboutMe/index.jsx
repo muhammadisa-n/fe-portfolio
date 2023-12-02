@@ -1,4 +1,3 @@
-
 import { SocialList } from "../../components/SocialList"
 import { FaInstagram, FaLinkedinIn, FaTwitter, FaGithub } from "react-icons/fa"
 const AboutMe = () => {
@@ -43,7 +42,7 @@ const AboutMe = () => {
             className="w-full px-4 mb-10 lg:w-1/2"
             data-aos="fade-right"
             data-aos-duration={1000}
-            data-aos-delay={500}
+            data-aos-delay={300}
           >
             <h4 className="mb-3 text-lg font-bold uppercase text-primary_light dark:text-primary_dark">
               About Me

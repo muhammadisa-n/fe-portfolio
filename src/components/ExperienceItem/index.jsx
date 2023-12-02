@@ -3,7 +3,7 @@ const ExperienceItem = ({ year, title, details, duration }) => {
     <ul
       className="relative flex flex-col border-l md:flex-row border-dark dark:border-light"
       data-aos="fade-down"
-      data-aos-duration={1500}
+      data-aos-duration={1000}
       data-aos-delay={500}
     >
       <li className="mb-10 ml-4">
