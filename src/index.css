@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  scrool-behavior: smooth;
-}
 body {
   @apply dark:bg-dark;
   @apply font-inter;
