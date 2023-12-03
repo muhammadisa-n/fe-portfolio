@@ -193,7 +193,7 @@ const Projects = () => {
             />
           ))}
         </div>
-        <div className="flex items-center justify-center w-full mt-10 text-dark dark:text-light">
+        <div className="flex items-center justify-center w-full mt-10 font-semibold text-light_button_text dark:text-dark_button_text">
           <button
             className="p-3 transition-all duration-300 rounded-sm bg-primary_light hover:bg-primary_dark hover:bg-opacity-80 dark:hover:bg-primary_light dark:hover:bg-opacity-20"
             onClick={() => handleShowAllProjects()}
@@ -208,7 +208,7 @@ const Projects = () => {
               <div className="absolute lg:right-0">
                 <button
                   onClick={() => setShowModalAllProject(false)}
-                  className="absolute top-0 px-1 py-1 rounded-full bg-primary_light text-light"
+                  className="absolute top-0 px-1 py-1 rounded-full bg-primary_light text-light_button_text dark:text-dark_button_text"
                 >
                   <IoMdClose size={25} className="text-dark dark:text-light" />
                 </button>
@@ -242,7 +242,7 @@ const Projects = () => {
             </h1>
             <button
               onClick={() => setShowModaDetail(false)}
-              className="absolute top-0 right-0 hidden px-1 py-1 rounded-full bg-primary_light text-light md:block"
+              className="absolute top-0 right-0 hidden px-1 py-1 rounded-full bg-primary_light text-light_button_text dark:text-dark_button_text md:block"
             >
               <IoMdClose size={25} className="text-dark dark:text-light" />
             </button>
@@ -298,7 +298,7 @@ const Projects = () => {
             <div className="flex items-center justify-center mt-5 md:hidden">
               <button
                 onClick={() => setShowModaDetail(false)}
-                className="w-full p-2 rounded-lg bg-primary_light text-light "
+                className="p-2 text-lg font-medium rounded-lg bg-primary_light text-light_button_text dark:text-dark_button_text dark:bg-primary_dark"
               >
                 Close
               </button>

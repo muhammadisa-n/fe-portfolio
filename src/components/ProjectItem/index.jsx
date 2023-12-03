@@ -14,7 +14,7 @@ const ProjectItem = ({ img, title, type_project, handleClick }) => {
           {type_project}
         </p>
         <button
-          className="w-full px-4 mx-auto mb-5 rounded-full bg-primary_light text-dark dark:bg-primary_dark dark:text-light"
+          className="w-full px-4 mx-auto mb-5 font-medium rounded-full bg-primary_light dark:bg-primary_dark text-light_button_text dark:text-dark_button_text"
           onClick={handleClick}
         >
           More Info

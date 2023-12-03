@@ -55,7 +55,7 @@ const Contact = () => {
             rows="10"
           ></textarea>
         </div>
-        <button className="w-full p-4 mt-4 font-semibold transition-all duration-300 rounded-lg text-light bg-primary_light dark:text-light dark:bg-primary_dark hover:bg-primary_dark dark:hover:bg-primary_light ">
+        <button className="w-full p-4 mt-4 font-semibold transition-all duration-300 rounded-lg text-light_button_text bg-primary_light dark:text-dark_button_text dark:bg-primary_dark hover:bg-primary_dark dark:hover:bg-primary_light ">
           Send Message
         </button>
       </form>
