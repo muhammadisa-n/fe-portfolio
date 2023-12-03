@@ -36,6 +36,10 @@ const Projects = () => {
           img_url: expressImage,
         },
         {
+          name: "NodeJs",
+          img_url: nodeJsImage,
+        },
+        {
           name: "MySQL",
           img_url: mysqlImage,
         },
@@ -55,6 +59,10 @@ const Projects = () => {
         {
           name: "VueJs",
           img_url: vueImage,
+        },
+        {
+          name: "NodeJs",
+          img_url: nodeJsImage,
         },
         {
           name: "expressJs",
