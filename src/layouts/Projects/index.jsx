@@ -25,7 +25,7 @@ const Projects = () => {
       type_project: "Personal Project",
       img: porto1,
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Dolores atque sapiente labore fugiat, soluta optio rerum deserunt quisquam odio? Commodi, perferendis ab sunt accusamus voluptatibus dolore optio ex quis fuga sit distinctio similique incidunt itaque voluptatum quaerat? Perspiciatis, quia labore aspernatur temporibus numquam voluptas sed, atque perferendis incidunt accusamus earum praesentium doloremque consequuntur iste ad impedit molestiae repudiandae.",
+        "Creating Website Like Trello , Using React JS in Frontend, And Express JS For Backend",
       tech_use: [
         {
           name: "ReactJs",
@@ -54,7 +54,7 @@ const Projects = () => {
       type_project: "Company Project",
       img: porto2,
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Dolores atque sapiente labore fugiat, soluta optio rerum deserunt quisquam odio? Commodi,.",
+        "Hackjog is a digital industrial ecosystem based on D.I.Y in the form of hexahelix collaboration. Focuses on growing the digital industry and transforming society through Artificial Intelligence. This website contains information about the Hackjog event",
       tech_use: [
         {
           name: "VueJs",
@@ -81,8 +81,7 @@ const Projects = () => {
       title: "Digital Library",
       type_project: "Personal Project",
       img: porto3,
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Dolores atque sapiente labore fugiat, soluta optio rerum deserunt quisquam odio? Commodi,.",
+      details: "Create a digital library system using php Laravel 10 framework",
       tech_use: [
         {
           name: "PHP",
@@ -107,7 +106,7 @@ const Projects = () => {
       type_project: "Personal Project",
       img: porto4,
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Dolores atque sapiente labore fugiat, soluta optio rerum deserunt quisquam odio? Commodi,Lorem ipsum dolor sit amet, consectetur adipisicing elit.Dolores atque sapiente labore fugiat, soluta optio rerum deserunt quisquam odio? Commodi,.",
+        "In this project I worked with a team of 2 people, my task was to make a Rest api using the python flask framework, and create a deep learning model using yolov5",
       tech_use: [
         {
           name: "Flutter",
@@ -135,7 +134,7 @@ const Projects = () => {
       type_project: "Personal Project",
       img: porto5,
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Dolores atque sapiente labore fugiat, soluta optio rerum deserunt quisquam odio? Commodi,Lorem ipsum dolor sit amet, consectetur adipisicing elit.Dolores atque sapiente labore fugiat, soluta optio rerum deserunt quisquam odio? Commodi,.",
+        "In this project I work with a team of 4 people, my task is to make a rest api using the framework from python flask, and integrate the api with the mobile app",
       tech_use: [
         {
           name: "Flutter",
