@@ -1,5 +1,5 @@
-import HeroImage1 from "@assets/hero1.jpg"
-import HeroImage2 from "@assets/hero2.jpg"
+const HeroImage1 = new URL("@assets/hero1.jpg", import.meta.url)
+const HeroImage2 = new URL("@assets/hero2.jpg", import.meta.url)
 import { TypeAnimation } from "react-type-animation"
 import HeroList from "@components/HeroList"
 const Home = () => {

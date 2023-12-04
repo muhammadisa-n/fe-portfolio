@@ -26,7 +26,4 @@ export default defineConfig({
       },
     ],
   },
-  build: {
-    assetsDir: "./src/assets",
-  },
 })

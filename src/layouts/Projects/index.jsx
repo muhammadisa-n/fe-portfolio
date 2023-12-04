@@ -1,20 +1,34 @@
 // import  { useState } from "react"
 import ProjectItem from "@components/ProjectItem"
-import porto1 from "@assets/clone_trello.png"
-import porto2 from "@assets/hackjog.png"
-import porto3 from "@assets/digital-library.png"
-import porto4 from "@assets/crime-detection.png"
-import porto5 from "@assets/ratetol.png"
-import expressImage from "@assets/expressjs.png"
-import reactImage from "@assets/react.png"
-import mysqlImage from "@assets/mysql.png"
-import nodeJsImage from "@assets/nodejs.png"
-import vueImage from "@assets/Vue.png"
-import flutterImage from "@assets/flutter.png"
-import laravelImage from "@assets/laravel.png"
-import phpImage from "@assets/php.png"
-import pythonImage from "@assets/python.png"
-import flaskImage from "@assets/flask.png"
+const porto1 = new URL("@assets/clone_trello.png", import.meta.url)
+const porto2 = new URL("@assets/hackjog.png", import.meta.url)
+const porto3 = new URL("@assets/digital-library.png", import.meta.url)
+const porto4 = new URL("@assets/crime-detection.png", import.meta.url)
+const porto5 = new URL("@assets/ratetol.png", import.meta.url)
+// import porto2 from "@assets/hackjog.png"
+// import porto3 from "@assets/digital-library.png"
+// import porto4 from "@assets/crime-detection.png"
+// import porto5 from "@assets/ratetol.png"
+const expressImage = new URL("@assets/expressjs.png", import.meta.url)
+const reactImage = new URL("@assets/react.png", import.meta.url)
+const mysqlImage = new URL("@assets/mysql.png", import.meta.url)
+const nodeJsImage = new URL("@assets/nodejs.png", import.meta.url)
+const vueImage = new URL("@assets/Vue.png", import.meta.url)
+const flutterImage = new URL("@assets/flutter.png", import.meta.url)
+const laravelImage = new URL("@assets/laravel.png", import.meta.url)
+const phpImage = new URL("@assets/php.png", import.meta.url)
+const pythonImage = new URL("@assets/python.png", import.meta.url)
+const flaskImage = new URL("@assets/flask.png", import.meta.url)
+
+// import reactImage from "@assets/react.png"
+// import mysqlImage from "@assets/mysql.png"
+// import nodeJsImage from "@assets/nodejs.png"
+// import vueImage from "@assets/Vue.png"
+// import flutterImage from "@assets/flutter.png"
+// import laravelImage from "@assets/laravel.png"
+// import phpImage from "@assets/php.png"
+// import pythonImage from "@assets/python.png"
+// import flaskImage from "@assets/flask.png"
 import { IoMdClose } from "react-icons/io"
 import { useState } from "react"
 const Projects = () => {
