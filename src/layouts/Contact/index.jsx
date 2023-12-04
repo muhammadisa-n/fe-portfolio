@@ -8,9 +8,9 @@ const Contact = () => {
         Contact
       </h1>
       <form
-        // action="https://getform.io/f/c13295af-a354-4ca5-b46e-3ea969329624"
-        // method="POST"
-        action="/"
+        action="https://getform.io/f/c13295af-a354-4ca5-b46e-3ea969329624"
+        method="POST"
+        // action="/"
         encType="multipart/form-data"
       >
         <div className="grid w-full gap-4 py-2 md:grid-cols-2">

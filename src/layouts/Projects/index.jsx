@@ -1,20 +1,20 @@
 // import  { useState } from "react"
-import ProjectItem from "../../components/ProjectItem"
-import porto1 from "../../assets/clone_trello.png"
-import porto2 from "../../assets/hackjog.png"
-import porto3 from "../../assets/digital-library.png"
-import porto4 from "../../assets/crime-detection.png"
-import porto5 from "../../assets/ratetol.png"
-import expressImage from "../../assets/expressjs.png"
-import reactImage from "../../assets/react.png"
-import mysqlImage from "../../assets/mysql.png"
-import nodeJsImage from "../../assets/nodejs.png"
-import vueImage from "../../assets/Vue.png"
-import flutterImage from "../../assets/flutter.png"
-import laravelImage from "../../assets/laravel.png"
-import phpImage from "../../assets/php.png"
-import pythonImage from "../../assets/python.png"
-import flaskImage from "../../assets/flask.png"
+import ProjectItem from "@components/ProjectItem"
+import porto1 from "@assets/clone_trello.png"
+import porto2 from "@assets/hackjog.png"
+import porto3 from "@assets/digital-library.png"
+import porto4 from "@assets/crime-detection.png"
+import porto5 from "@assets/ratetol.png"
+import expressImage from "@assets/expressjs.png"
+import reactImage from "@assets/react.png"
+import mysqlImage from "@assets/mysql.png"
+import nodeJsImage from "@assets/nodejs.png"
+import vueImage from "@assets/Vue.png"
+import flutterImage from "@assets/flutter.png"
+import laravelImage from "@assets/laravel.png"
+import phpImage from "@assets/php.png"
+import pythonImage from "@assets/python.png"
+import flaskImage from "@assets/flask.png"
 import { IoMdClose } from "react-icons/io"
 import { useState } from "react"
 const Projects = () => {
@@ -290,7 +290,7 @@ const Projects = () => {
                 alt={selectedData.img}
                 className="object-cover  rounded w-[500px] h-[250px] "
               />
-              <p className="text-dark dark:text-light2">
+              <p className="font-medium text-dark dark:text-light2">
                 {selectedData.details}
               </p>
             </div>

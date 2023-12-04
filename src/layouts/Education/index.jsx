@@ -1,4 +1,4 @@
-import EducationItem from "../../components/EducationItem"
+import EducationItem from "@components/EducationItem"
 
 const Education = () => {
   const dataEducation = [

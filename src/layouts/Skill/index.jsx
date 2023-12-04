@@ -1,7 +1,7 @@
-import BackendIcon from "../../assets/backend.png"
-import FrontendIcon from "../../assets/frontend.png"
-import OthersIcon from "../../assets/others.png"
-import SkillList from "../../components/SkillList"
+import BackendIcon from "@assets/backend.png"
+import FrontendIcon from "@assets/frontend.png"
+import OthersIcon from "@assets/others.png"
+import SkillList from "@components/SkillList"
 const Skill = () => {
   const data = {
     frontend: [

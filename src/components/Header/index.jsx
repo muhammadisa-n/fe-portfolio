@@ -11,7 +11,7 @@ import { SiAboutdotme } from "react-icons/si"
 import { IoSchoolOutline } from "react-icons/io5"
 import { VscTools } from "react-icons/vsc"
 import NavItemMobile from "../NavItemMobile"
-import NavItem from "../NavItem"
+import NavItem from "@components/NavItem"
 const Header = () => {
   const [nav, setNav] = useState(false)
   const [theme, setTheme] = useState(
@@ -188,38 +188,6 @@ const Header = () => {
           </button>
         )}
       </div>
-      {/* <div className="md:block hidden fixed top-[25%] right-0 z-10">
-        <div className="flex flex-col">
-          {nav2.map((item, index) => (
-            <NavItem key={index} linkTitle={item.title} linkTo={item.linkTo}>
-              {item.icon}
-            </NavItem>
-          ))}
-          {theme === "dark" ? (
-            <button
-              onClick={darkmodeToggle}
-              title="Light Mode"
-              className="p-4 m-2 duration-300 ease-in bg-gray-100 rounded-full shadow-lg cursor-pointer shadow-gray-400 hover:scale-110"
-            >
-              <MdDarkMode
-                size={20}
-                className="text-primary_light dark:text-primary_dark"
-              />
-            </button>
-          ) : (
-            <button
-              onClick={darkmodeToggle}
-              title="Dark Mode"
-              className="p-4 m-2 duration-300 ease-in bg-gray-100 rounded-full shadow-lg cursor-pointer shadow-gray-400 hover:scale-110"
-            >
-              <MdOutlineDarkMode
-                size={20}
-                className="text-primary_light dark:text-primary_dark"
-              />
-            </button>
-          )}
-        </div>
-      </div> */}
     </div>
   )
 }

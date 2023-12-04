@@ -1,4 +1,4 @@
-import ExperienceItem from "../../components/ExperienceItem"
+import ExperienceItem from "@components/ExperienceItem"
 const Experience = () => {
   const dataExperience = [
     {

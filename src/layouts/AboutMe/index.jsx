@@ -1,4 +1,4 @@
-import { SocialList } from "../../components/SocialList"
+import { SocialList } from "@components/SocialList"
 import { FaInstagram, FaLinkedinIn, FaTwitter, FaGithub } from "react-icons/fa"
 const AboutMe = () => {
   const socialData = [

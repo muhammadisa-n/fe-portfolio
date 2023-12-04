@@ -1,7 +1,7 @@
-import HeroImage1 from "../../assets/hero1.jpg"
-import HeroImage2 from "../../assets/hero2.jpg"
+import HeroImage1 from "@assets/hero1.jpg"
+import HeroImage2 from "@assets/hero2.jpg"
 import { TypeAnimation } from "react-type-animation"
-import HeroList from "../../components/HeroList"
+import HeroList from "@components/HeroList"
 const Home = () => {
   const dataTyping = [
     "Student",
