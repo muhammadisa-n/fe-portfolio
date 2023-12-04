@@ -3,7 +3,7 @@ import ProjectItem from "@components/ProjectItem"
 const porto1 = new URL("@assets/clone_trello.png", import.meta.url)
 const porto2 = new URL("@assets/hackjog.png", import.meta.url)
 const porto3 = new URL("@assets/digital_library.png", import.meta.url)
-const porto4 = new URL("@assets/crime_detection.png", import.meta.url)
+const porto4 = new URL("@assets/crime_detect.png", import.meta.url)
 const porto5 = new URL("@assets/ratetol.png", import.meta.url)
 // import porto2 from "@assets/hackjog.png"
 // import porto3 from "@assets/digital-library.png"
