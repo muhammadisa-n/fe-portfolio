@@ -7,6 +7,10 @@ export default defineConfig({
   resolve: {
     alias: [
       {
+        find: "@",
+        replacement: fileURLToPath(new URL("./src", import.meta.url)),
+      },
+      {
         find: "@assets",
         replacement: fileURLToPath(new URL("./src/assets", import.meta.url)),
       },
@@ -21,5 +25,8 @@ export default defineConfig({
         replacement: fileURLToPath(new URL("./src/layouts", import.meta.url)),
       },
     ],
+  },
+  build: {
+    assetsDir: "./src/assets",
   },
 })
