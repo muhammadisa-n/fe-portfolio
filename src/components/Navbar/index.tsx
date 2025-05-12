@@ -7,15 +7,17 @@ const Navbar = () => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
       setDark(true);
-      document.body.classList.add("dark");
+      document.documentElement.classList.add("dark");
     }
   }, []);
+
   const darkModeHandler = () => {
     const newDarkMode = !dark;
     setDark(newDarkMode);
-    document.body.classList.toggle("dark");
+    document.documentElement.classList.toggle("dark");
     localStorage.setItem("theme", newDarkMode ? "dark" : "light");
   };
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 150) {
@@ -33,7 +35,7 @@ const Navbar = () => {
     <div className="navbar py-7 flex items-center justify-between ">
       <div className="logo">
         <h1 className="text-3xl font-bold bg-dark dark:bg-light text-light dark:text-dark  p-1 md:bg-transparent md:text-dark dark:md:text-light dark:md:bg-transparent ">
-          My Portfolio
+          My Portofolio
         </h1>
       </div>
       <ul
@@ -42,28 +44,40 @@ const Navbar = () => {
         }`}
       >
         <li>
-          <a href="#home" className="sm:text-lg text-base font-medium">
-            Home
-          </a>
-        </li>
-        <li>
-          <a href="#about" className="sm:text-lg  text-base font-medium">
-            About
-          </a>
-        </li>
-        <li>
-          <a href="#projects" className="sm:text-lg text-base font-medium">
-            Projects
-          </a>
-        </li>
-        <li>
-          <a href="#contact" className="sm:text-lg text-base font-medium">
-            Contact
+          <a
+            href="#home"
+            className="sm:text-lg text-base font-medium dark:hover:text-primary hover:text-secondary"
+          >
+            Beranda
           </a>
         </li>
         <li>
           <a
-            className="sm:text-lg text-base font-medium"
+            href="#about"
+            className="sm:text-lg  text-base font-medium dark:hover:text-primary hover:text-secondary"
+          >
+            Tentang
+          </a>
+        </li>
+        <li>
+          <a
+            href="#projects"
+            className="sm:text-lg text-base font-medium dark:hover:text-primary hover:text-secondary"
+          >
+            Proyek
+          </a>
+        </li>
+        <li>
+          <a
+            href="#contact"
+            className="sm:text-lg text-base font-medium dark:hover:text-primary hover:text-secondary"
+          >
+            Kontak
+          </a>
+        </li>
+        <li>
+          <a
+            className="sm:text-lg text-base font-medium dark:hover:text-primary hover:text-secondary"
             onClick={darkModeHandler}
           >
             {dark && <IoSunny />}
