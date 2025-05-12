@@ -8,5 +8,12 @@
   "menu1": "Home",
   "menu2": "About",
   "menu3": "Projects",
-  "menu4": "Contacts"
+  "menu4": "Contacts",
+  "aboutP1": "I’m a Web Developer with a strong passion for web development, both frontend and backend. I work effectively both in a team and independently. I also have a solid understanding of modern web technologies and always strive to keep improving my skills in this field.",
+  "aboutP2": "Projects Completed",
+  "aboutP3": "Years of Experience",
+  "aboutH1": "Tools I Use",
+  "aboutP4": "Here are some tools I often use to build websites",
+  "titleProject": "Projects",
+  "projectP1": "Here are some projects I have created."
 }

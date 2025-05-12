@@ -8,5 +8,12 @@
   "menu1": "Beranda",
   "menu2": "Tentang",
   "menu3": "Proyek",
-  "menu4": "Kontak"
+  "menu4": "Kontak",
+  "aboutP1": "Saya adalah seorang Web Developer dengan minat besar di dunia pengembangan web, baik di sisi frontend maupun backend. Saya terbiasa bekerja secara efektif, baik dalam tim maupun secara mandiri. Saya juga memiliki pemahaman yang kuat tentang teknologi web modern dan selalu berusaha mengembangkan kemampuan saya di bidang ini.",
+  "aboutP2": "Proyek Selesai",
+  "aboutP3": "Tahun Pengalaman",
+  "aboutH1": "Tools yang digunakan",
+  "aboutP4": "Berikut ini beberapa tools yang biasa saya pakai untuk membuat website",
+  "titleProject": "Proyek",
+  "projectP1": "Berikut ini beberapa proyek yang telah saya buat."
 }
