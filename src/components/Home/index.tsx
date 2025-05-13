@@ -44,6 +44,7 @@ const HomeSection = () => {
         alt="Hero Image"
         className="w-[500px] md:ml-auto"
         loading="lazy"
+        title="Hero Image"
       />
     </div>
   );

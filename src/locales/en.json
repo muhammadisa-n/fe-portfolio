@@ -9,6 +9,8 @@
   "menu2": "About",
   "menu3": "Projects",
   "menu4": "Contacts",
+  "menu5": "Switch Theme",
+  "menu6": "Switch Language",
   "aboutP1": "I’m a Web Developer with a strong passion for web development, both frontend and backend. I work effectively both in a team and independently. I also have a solid understanding of modern web technologies and always strive to keep improving my skills in this field.",
   "aboutP2": "Projects Completed",
   "aboutP3": "Years of Experience",
@@ -17,5 +19,12 @@
   "titleProject": "Projects",
   "projectP1": "Here are some projects I have created.",
   "projecta1": "See Demo",
-  "projecta2": "Souce Code"
+  "projecta2": "Souce Code",
+  "language": "Language",
+  "framework": "Framework",
+  "database": "Database",
+  "codeEditor": "Code Editor",
+  "repository": "Repository",
+  "runtime": "JavaScript Runtime",
+  "devEnv": "Development Environment"
 }

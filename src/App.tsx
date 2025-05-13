@@ -1,13 +1,13 @@
-import AboutSection from "./components/About";
-import HomeSection from "./components/Home";
-import ProjectsSection from "./components/Projects";
+import HomePage from "./pages/Home.tsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
-    <>
-      <HomeSection />
-      <AboutSection />
-      <ProjectsSection />
-    </>
+    <Router>
+      <Routes>
+        {/* Default route */}
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </Router>
   );
 }
 

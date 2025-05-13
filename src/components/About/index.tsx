@@ -47,7 +47,7 @@ const AboutSection = () => {
                 />
                 <div>
                   <h4 className="font-semibold dark:font-bold ">{tool.nama}</h4>
-                  <p className="dark:opacity-50 opacity-60">{tool.ket}</p>
+                  <p className="dark:opacity-50 opacity-60">{t(tool.ket)}</p>
                 </div>
               </div>
             </a>
