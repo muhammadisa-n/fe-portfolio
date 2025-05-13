@@ -10,10 +10,14 @@ const Navbar = () => {
   const { t, i18n } = useTranslation();
   const [language, setLanguage] = useState(i18n.language || "en");
 
-  // Inisialisasi dark mode (tanpa localStorage)
   useEffect(() => {
-    if (document.documentElement.classList.contains("dark")) {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
       setDark(true);
+      document.documentElement.classList.add("dark");
+    } else {
+      setDark(false);
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
@@ -21,6 +25,7 @@ const Navbar = () => {
     const newDarkMode = !dark;
     setDark(newDarkMode);
     document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", newDarkMode ? "dark" : "light");
   };
 
   const toggleLanguage = () => {

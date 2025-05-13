@@ -26,5 +26,8 @@
   "codeEditor": "Editor Kode",
   "repository": "Repositori",
   "runtime": "Lingkungan JavaScript",
-  "devEnv": "Lingkungan Pengembangan"
+  "devEnv": "Lingkungan Pengembangan",
+  "notFoundTitle": "404 - Halaman Tidak Ditemukan",
+  "notFoundDesc": "Ups, halaman yang kamu cari tidak ada.",
+  "goHome": "Kembali ke Beranda"
 }

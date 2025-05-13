@@ -26,5 +26,8 @@
   "codeEditor": "Code Editor",
   "repository": "Repository",
   "runtime": "JavaScript Runtime",
-  "devEnv": "Development Environment"
+  "devEnv": "Development Environment",
+  "notFoundTitle": "404 - Page Not Found",
+  "notFoundDesc": "Oops, the page you are looking for does not exist.",
+  "goHome": "Back to Home"
 }
