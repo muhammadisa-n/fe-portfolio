@@ -32,16 +32,18 @@ const ProjectsSection = () => {
               </div>
               <div className=" mt-8 text-center ">
                 <a
-                  href="#"
+                  href={project.url_demo}
                   className="bg-primary p-3 rounded-lg block border border-zinc-600 hover:bg-secondary"
+                  target="_blank"
                 >
                   {t("projecta1")}
                 </a>
               </div>
               <div className=" mt-2 text-center ">
                 <a
-                  href="#"
+                  href={project.url_project}
                   className="bg-primary p-3 rounded-lg block border border-zinc-600 hover:bg-secondary"
+                  target="_blank"
                 >
                   {t("projecta2")}
                 </a>

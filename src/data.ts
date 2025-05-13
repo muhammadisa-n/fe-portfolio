@@ -146,60 +146,79 @@ export const listTools = [
   },
 ];
 
-import Proyek1 from "../src/assets/proyek/proyek1.webp";
-import Proyek2 from "../src/assets/proyek/proyek2.webp";
-import Proyek3 from "../src/assets/proyek/proyek3.webp";
-import Proyek4 from "../src/assets/proyek/proyek4.webp";
-import Proyek5 from "../src/assets/proyek/proyek5.webp";
-import Proyek6 from "../src/assets/proyek/proyek6.webp";
+import Proyek1 from "../src/assets/projects/refoodapp.png";
+import Proyek2 from "../src/assets/projects/hackjog.png";
+import Proyek3 from "../src/assets/projects/crime-detection.png";
+import Proyek4 from "../src/assets/projects/ratetol.png";
+import Proyek5 from "../src/assets/projects/clone_trello.png";
+import Proyek6 from "../src/assets/projects/digital_library.png";
 
 export const listProyek = [
   {
     id: 1,
     gambar: Proyek1,
-    nama: "Website Sekolah",
-    desk: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, laborum!",
-    tools: ["HTML", "CSS", "Javascript", "AOS"],
+    nama: "Refood App",
+    desk: "Refood app adalah apilikasi Pemesanan Makanan Berbasis website dengan firut Rekomendasi Menu Makanan",
+    tools: [
+      "Javascript",
+      "Node JS",
+      "React Js",
+      "Tailwind CSS",
+      "Express",
+      "MySQL",
+    ],
     dad: "200",
+    url_demo: "",
+    url_project: "https://github.com/muhammadisa-n/fe-tugas-akhir",
   },
   {
     id: 2,
     gambar: Proyek2,
-    nama: "Company Profile",
-    desk: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, laborum!",
-    tools: ["HTML", "CSS", "Javascript", "AOS", "Swiper", "Lightbox Gallery"],
+    nama: "Hackjog (Internship Project)",
+    desk: "Hackjog adalah senbuah website untuk memberikan informasi tentang Hackjog Event",
+    tools: ["Javascript", "Node JS", "Vue Js", "Express JS", "MySQL"],
     dad: "300",
+    url_demo: "",
+    url_project: "https://github.com/muhammadisa-n/hackjog-landingpage",
   },
   {
     id: 3,
     gambar: Proyek3,
-    nama: "Web Pernikahan 2.0",
-    desk: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, laborum!",
-    tools: ["Vite", "ReactJS", "TailwindCSS", "AOS"],
+    nama: "Crime Detection",
+    desk: "Crime Detection adalah aplikasi berbasis mobile untuk mendeteksi jenis kejahatan",
+    tools: ["Python", "Flask", "Mysql"],
     dad: "400",
+    url_demo: "",
+    url_project: "https://github.com/muhammadisa-n/crime-detection-api",
   },
   {
     id: 4,
     gambar: Proyek4,
-    nama: "Website Course",
-    desk: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, laborum!",
-    tools: ["Vite", "ReactJS", "Bootstrap", "AOS"],
+    nama: "Rate Tol",
+    desk: "Rate Tol adalah aplikasi berbasis website untuk mendeteksi tarif tol berdasrkan jenis kendaraan",
+    tools: ["Python", "Flask", "Mysql"],
     dad: "500",
+    url_demo: "",
+    url_project: "https://github.com/muhammadisa-n/RateTol-Flask",
   },
   {
     id: 5,
     gambar: Proyek5,
-    nama: "Web Portfolio",
-    desk: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, laborum!",
-    tools: ["HTML", "CSS", "Javascript", "Bootsrap"],
+    nama: "Clone Trello",
+    desk: "Membuat website seperi Trello",
+    tools: ["Javascript", "Node JS", "React", "Express JS", "MySQL"],
     dad: "600",
+    url_demo: "",
+    url_project: "https://github.com/muhammadisa-n/clone-trello-app",
   },
   {
     id: 6,
     gambar: Proyek6,
-    nama: "Company Profile 2.0",
-    desk: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, laborum!",
-    tools: ["NextJS", "TailwindCSS", "Framermotion"],
+    nama: "Digital Library",
+    desk: "Webiste ini merupakan website manajemen perpustakaan",
+    tools: ["PHP", "Laravel", "Bootstrap", "MySQL"],
     dad: "700",
+    url_demo: "https://dev.muhammad-isa.my.id/library",
+    url_project: "https://github.com/muhammadisa-n/Digital-Library-Laravel-10",
   },
 ];
