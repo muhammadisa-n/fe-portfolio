@@ -109,6 +109,7 @@ const Navbar = () => {
             alt="Toggle Language"
             className="w-full h-6 cursor-pointer hover:opacity-70 hidden md:block"
             onClick={toggleLanguage}
+            loading="lazy"
           />
         </li>
       </ul>

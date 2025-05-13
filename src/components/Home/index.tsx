@@ -10,7 +10,12 @@ const HomeSection = () => {
     >
       <div>
         <div className="flex items-center gap-3 mb-6 dark:bg-zinc-700 bg-zinc-500 w-fit p-4 rounded-2xl text-light ">
-          <img src={HeroImage} alt="Hero Image" className="w-10 rounded-md" />
+          <img
+            src={HeroImage}
+            alt="Hero Image"
+            className="w-10 rounded-md"
+            loading="lazy"
+          />
           <q>{t("homeQuote")}</q>
         </div>
         <h1 className="text-5xl/tight font-bold mb-6">{t("homeWelcome")}</h1>
@@ -34,7 +39,12 @@ const HomeSection = () => {
           </a>
         </div>
       </div>
-      <img src={HeroImage} alt="Hero Image" className="w-[500px] md:ml-auto" />
+      <img
+        src={HeroImage}
+        alt="Hero Image"
+        className="w-[500px] md:ml-auto"
+        loading="lazy"
+      />
     </div>
   );
 };
