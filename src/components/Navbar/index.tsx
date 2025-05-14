@@ -50,7 +50,7 @@ const Navbar = () => {
       <div className="logo">
         <h1
           title={t("titleNavbar")}
-          className="text-3xl font-bold bg-dark dark:bg-light text-light dark:text-dark p-1 md:bg-transparent md:text-dark dark:md:text-light dark:md:bg-transparent z-40"
+          className="text-3xl font-bold bg-dark dark:bg-light text-light dark:text-dark p-1 md:bg-transparent md:text-dark dark:md:text-light dark:md:bg-transparent "
         >
           <Link to="/">{t("titleNavbar")}</Link>
         </h1>
@@ -58,7 +58,7 @@ const Navbar = () => {
       <ul
         className={`menu flex items-center sm:gap-10 gap-4 md:static fixed left-1/2 -translate-x-1/2 md:-translate-x-0 md:opacity-100 bg-light/30 backdrop-blur-md p-4 rounded-br-2xl rounded-bl-2xl ${
           active ? "top-0 opacity-100" : "-top-10 opacity-0 md:bg-transparent"
-        }`}
+        } z-50`}
       >
         <li>
           <a
