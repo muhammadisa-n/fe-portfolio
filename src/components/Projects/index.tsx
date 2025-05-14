@@ -25,7 +25,7 @@ const ProjectsSection = () => {
         {listProyek.map((project) => (
           <div
             key={project.id}
-            className="p-4 bg-zinc-800 rounded-md"
+            className="p-4  bg-zinc-100 dark:bg-zinc-800 rounded-md"
             data-aos="fade-up"
             data-aos-duration="1000"
             data-aos-delay={project.dad}
@@ -38,13 +38,15 @@ const ProjectsSection = () => {
               loading="lazy"
             />
             <div className="">
-              <h1 className="text-2xl font-bold my-4">{project.nama}</h1>
-              <p className="text-base/loose">{project.desk}</p>
+              <h1 className="text-2xl font-bold my-4 ">{project.nama}</h1>
+              <p className="text-base/loose dark:text-light text-dark ">
+                {project.desk}
+              </p>
               <div className="flex flex-wrap gap-2">
                 {project.tools.map((tool, index) => (
                   <p
                     key={index}
-                    className="py-1 px-3 border border-zinc-500 rounded-md font-semibold bg-zinc-600"
+                    className="py-1 px-3 border border-zinc-500  rounded-md font-semibold bg-zinc-200   dark:bg-zinc-600 opacity-80 dark:opacity-100"
                   >
                     {tool}
                   </p>
@@ -53,7 +55,7 @@ const ProjectsSection = () => {
               <div className=" mt-8 text-center ">
                 <a
                   href={project.url_demo}
-                  className="bg-primary p-3 rounded-lg block border border-zinc-600 hover:bg-secondary"
+                  className=" p-3 rounded-lg block border dark:border-zinc-600 border-zinc-500 hover:bg-primary dark:hover:bg-secondary dark:bg-primary bg-secondary font-semibold"
                   target="_blank"
                 >
                   {t("projecta1")}
@@ -62,7 +64,7 @@ const ProjectsSection = () => {
               <div className=" mt-2 text-center ">
                 <a
                   href={project.url_project}
-                  className="bg-primary p-3 rounded-lg block border border-zinc-600 hover:bg-secondary"
+                  className="p-3 rounded-lg block  border dark:border-zinc-600 border-zinc-500 hover:bg-primary dark:hover:bg-secondary dark:bg-primary bg-secondary font-semibold"
                   target="_blank"
                 >
                   {t("projecta2")}
