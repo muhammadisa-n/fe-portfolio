@@ -8,16 +8,7 @@ const HomeSection = () => {
       className="hero grid md:grid-cols-2 pt-12 items-center xl:gap-0 gap-6 grid-cols-1"
       id="home"
     >
-      <div>
-        <div className="flex items-center gap-3 mb-6 dark:bg-zinc-700 bg-zinc-500 w-fit p-4 rounded-2xl text-light ">
-          <img
-            src={HeroImage}
-            alt="Hero Image"
-            className="w-10 rounded-md"
-            loading="lazy"
-          />
-          <q>{t("homeQuote")}</q>
-        </div>
+      <div className="animate__animated animate__fadeInUp animate__delay-2s">
         <h1 className="text-5xl/tight font-bold mb-6">{t("homeWelcome")}</h1>
         <p className="text-base/loose mb-6 opacity-70 text-dark dark:text-light dark:opacity-50 ">
           {t("homeParagraph")}
@@ -42,7 +33,7 @@ const HomeSection = () => {
       <img
         src={HeroImage}
         alt="Hero Image"
-        className="w-[500px] md:ml-auto"
+        className="w-[500px] md:ml-auto animate__animated animate__fadeInUp animate__delay-3s"
         loading="lazy"
         title="Hero Image"
       />

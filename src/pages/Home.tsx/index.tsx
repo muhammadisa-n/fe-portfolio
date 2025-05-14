@@ -1,4 +1,6 @@
 import AboutSection from "../../components/About";
+import ContactSection from "../../components/Contact";
+import Footer from "../../components/Footer";
 import HomeSection from "../../components/Home";
 import Navbar from "../../components/Navbar";
 import ProjectsSection from "../../components/Projects";
@@ -11,6 +13,8 @@ function HomePage() {
         <HomeSection />
         <AboutSection />
         <ProjectsSection />
+        <ContactSection />
+        <Footer />
       </div>
     </>
   );

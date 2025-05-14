@@ -4,13 +4,33 @@ const ProjectsSection = () => {
   const { t } = useTranslation();
   return (
     <div className="projects mt-32 py-10" id="projects">
-      <h1 className="text-center text-4xl font-bold mb-2 ">
+      <h1
+        className="text-center text-4xl font-bold mb-2 "
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-once="true"
+      >
         {t("titleProject")}
       </h1>
-      <p className="text-base/loose text-center opacity-50">{t("projectP1")}</p>
+      <p
+        className="text-base/loose text-center opacity-50"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="300"
+        data-aos-once="true"
+      >
+        {t("projectP1")}
+      </p>
       <div className="projects-box m-14 grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1  gap-4">
         {listProyek.map((project) => (
-          <div key={project.id} className="p-4 bg-zinc-800 rounded-md">
+          <div
+            key={project.id}
+            className="p-4 bg-zinc-800 rounded-md"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay={project.dad}
+            data-aos-once="true"
+          >
             <img
               src={project.gambar}
               alt="Project Image"

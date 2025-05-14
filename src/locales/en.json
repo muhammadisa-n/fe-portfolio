@@ -1,7 +1,6 @@
 {
   "titleNavbar": "My Portfolio",
   "homeWelcome": "Hi, My Name Is Muhammad Isa Nuruddin",
-  "homeQuote": "Enjoy the moment, coding is my life.🤘",
   "homeParagraph": "I'm delighted to connect with you and discuss everything related to technology, software development, or any other interesting topics.Let's collaborate, share ideas, and build beneficial relationships together! I'm looking forward to hearing from you soon.",
   "linkHome1": "Download CV",
   "linkHome2": "See Projects",
@@ -29,5 +28,11 @@
   "devEnv": "Development Environment",
   "notFoundTitle": "404 - Page Not Found",
   "notFoundDesc": "Oops, the page you are looking for does not exist.",
-  "goHome": "Back to Home"
+  "goHome": "Back to Home",
+  "contactTitle": "Contact",
+  "contactp1": "Lets connect with me",
+  "contactf1": "Full Name",
+  "contactf2": "Email",
+  "contactf3": "Message",
+  "contactf4": "Send Message"
 }

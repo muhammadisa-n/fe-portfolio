@@ -3,6 +3,7 @@ import { IoMoon, IoSunny } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 import idFlag from "../../assets/id.png";
 import enFlag from "../../assets/en.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
@@ -47,9 +48,9 @@ const Navbar = () => {
       <div className="logo">
         <h1
           title={t("titleNavbar")}
-          className="text-3xl font-bold bg-dark dark:bg-light text-light dark:text-dark p-1 md:bg-transparent md:text-dark dark:md:text-light dark:md:bg-transparent"
+          className="text-3xl font-bold bg-dark dark:bg-light text-light dark:text-dark p-1 md:bg-transparent md:text-dark dark:md:text-light dark:md:bg-transparent z-40"
         >
-          {t("titleNavbar")}
+          <Link to="/">{t("titleNavbar")}</Link>
         </h1>
       </div>
       <ul

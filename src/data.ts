@@ -129,7 +129,7 @@ export const listTools = [
     url: "https://github.com/",
   },
   {
-    id: 16,
+    id: 15,
     gambar: Tools15,
     nama: "Visual Studio Code",
     ket: "codeEditor",
