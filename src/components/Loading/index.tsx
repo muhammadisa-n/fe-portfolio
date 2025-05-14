@@ -1,13 +1,38 @@
 import { useEffect, useState } from "react";
 
-const PreLoader = () => {
+type preLoaderProps = {
+  seconds?: number;
+};
+const Loading = ({ seconds }: preLoaderProps) => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setTimeout(() => setLoading(false), 3000);
-  }, []);
+    if (seconds !== undefined) {
+      const timeout = setTimeout(() => setLoading(false), seconds * 1000);
+      return () => clearTimeout(timeout);
+    }
+  }, [seconds]);
+
+  useEffect(() => {
+    if (loading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [loading]);
+
+  const backgroundClass =
+    seconds !== undefined
+      ? "dark:bg-dark bg-light"
+      : "bg-transparent backdrop-blur-md";
   return (
     loading && (
-      <div className="w-screen h-screen  flex fixed items-center justify-center dark:bg-dark bg-light z-50">
+      <div
+        className={`w-screen h-screen flex fixed items-center justify-center z-75 ${backgroundClass}`}
+      >
         <div role="status">
           <svg
             aria-hidden="true"
@@ -32,4 +57,4 @@ const PreLoader = () => {
   );
 };
 
-export default PreLoader;
+export default Loading;
