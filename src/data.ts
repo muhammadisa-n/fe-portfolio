@@ -146,7 +146,7 @@ export const listTools = [
   },
 ];
 
-import Proyek1 from "../src/assets/projects/refoodapp.png";
+import Proyek1 from "../src/assets/projects/refood_app.png";
 import Proyek2 from "../src/assets/projects/hackjog.png";
 import Proyek3 from "../src/assets/projects/crime-detection.png";
 import Proyek4 from "../src/assets/projects/ratetol.png";
