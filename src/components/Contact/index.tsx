@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 const ContactSection = () => {
   const { t } = useTranslation();
   return (
-    <div className="contact mt-32 sm:p-10 p-0">
+    <div className="contact mt-32 sm:p-10 p-0" id="contact">
       <h1
         className="text-4xl mb-2 font-bold text-center"
         data-aos="fade-up"

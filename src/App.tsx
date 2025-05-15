@@ -1,4 +1,4 @@
-import HomePage from "./pages/Home.tsx";
+import HomePage from "./pages/Home/index.tsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NotFoundPage from "./pages/NotFound/index.tsx";
 function App() {
