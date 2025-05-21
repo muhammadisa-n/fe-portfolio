@@ -112,7 +112,7 @@ const AboutSection = () => {
                       src={tool.image_url}
                       alt="Tools Image"
                       className="w-14 bg-zinc-700 p-1 group-hover:bg-zinc-800"
-                      // loading="lazy"
+                      loading="lazy"
                     />
                     <div>
                       <h4 className="font-semibold dark:font-bold ">
