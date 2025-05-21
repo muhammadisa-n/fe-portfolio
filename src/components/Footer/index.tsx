@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 const Footer = () => {
   const { t } = useTranslation();
   return (
@@ -40,12 +40,20 @@ const Footer = () => {
           <FaGithub size={30} />
         </a>
         <a
-          href="https://www.linkedin.com/in/muhammad-isa-n/"
+          href="https://www.linkedin.com/in/muhammad-isa-n"
           target="_blank"
           title="Linkedin"
           className="dark:hover:text-primary hover:text-secondary"
         >
           <FaLinkedin size={30} />
+        </a>
+        <a
+          href="https://www.instagram.com/muhisa.n"
+          target="_blank"
+          title="Instagram"
+          className="dark:hover:text-primary hover:text-secondary"
+        >
+          <FaInstagram size={30} />
         </a>
       </div>
     </div>
