@@ -16,7 +16,7 @@ const HomeSection = () => {
         <div className="flex items-center sm:gap-4 gap-2 ">
           <a
             href="#"
-            className="bg-zinc-600 p-4 rounded-2xl hover:bg-zinc-500 dark:bg-primary dark:hover:bg-rose-400 flex text-light"
+            className=" p-4 rounded-2xl bg-zinc-600 hover:bg-zinc-500 dark:bg-primary dark:hover:bg-rose-400 flex text-light"
           >
             {t("linkHome1")}
             <FaDownload className="text-sm mt-1 mx-2" />

@@ -30,7 +30,7 @@ export const listTools = [
     nama: "Typescript",
     ket: "language",
     dad: "200",
-    url: "https://www.typescriptlang.org/",
+    url: "https://www.typescriptlang.org",
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ export const listTools = [
     nama: "PHP",
     ket: "language",
     dad: "300",
-    url: "https://www.php.net/",
+    url: "https://www.php.net",
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ export const listTools = [
     nama: "Tailwind CSS",
     ket: "framework",
     dad: "400",
-    url: "https://tailwindcss.com/",
+    url: "https://tailwindcss.com",
   },
   {
     id: 5,
@@ -54,7 +54,7 @@ export const listTools = [
     nama: "Bootstrap",
     ket: "framework",
     dad: "500",
-    url: "https://getbootstrap.com/",
+    url: "https://getbootstrap.com",
   },
   {
     id: 6,
@@ -62,7 +62,7 @@ export const listTools = [
     nama: "React JS",
     ket: "framework",
     dad: "600",
-    url: "https://reactjs.org/",
+    url: "https://reactjs.org",
   },
   {
     id: 7,
@@ -70,7 +70,7 @@ export const listTools = [
     nama: "Vue JS",
     ket: "framework",
     dad: "700",
-    url: "https://vuejs.org/",
+    url: "https://vuejs.org",
   },
   {
     id: 8,
@@ -78,7 +78,7 @@ export const listTools = [
     nama: "Node JS",
     ket: "runtime",
     dad: "800",
-    url: "https://nodejs.org/",
+    url: "https://nodejs.org",
   },
   {
     id: 9,
@@ -86,7 +86,7 @@ export const listTools = [
     nama: "Express JS",
     ket: "framework",
     dad: "900",
-    url: "https://expressjs.com/",
+    url: "https://expressjs.com",
   },
   {
     id: 10,
@@ -94,7 +94,7 @@ export const listTools = [
     nama: "Adonis JS",
     ket: "framework",
     dad: "1000",
-    url: "https://adonisjs.com/",
+    url: "https://adonisjs.com",
   },
   {
     id: 11,
@@ -102,7 +102,7 @@ export const listTools = [
     nama: "Laravel",
     ket: "framework",
     dad: "1100",
-    url: "https://laravel.com/",
+    url: "https://laravel.com",
   },
   {
     id: 12,
@@ -110,7 +110,7 @@ export const listTools = [
     nama: "CodeIgniter",
     ket: "framework",
     dad: "1200",
-    url: "https://codeigniter.com/",
+    url: "https://codeigniter.com",
   },
   {
     id: 13,
@@ -118,15 +118,15 @@ export const listTools = [
     nama: "MySQL",
     ket: "database",
     dad: "1300",
-    url: "https://www.mysql.com/",
+    url: "https://www.mysql.com",
   },
   {
     id: 14,
     gambar: Tools14,
     nama: "Github",
     ket: "repository",
-    dad: "1200",
-    url: "https://github.com/",
+    dad: "1400",
+    url: "https://github.com",
   },
   {
     id: 15,
@@ -134,7 +134,7 @@ export const listTools = [
     nama: "Visual Studio Code",
     ket: "codeEditor",
     dad: "1500",
-    url: "https://code.visualstudio.com/",
+    url: "https://code.visualstudio.com",
   },
   {
     id: 16,
@@ -142,7 +142,7 @@ export const listTools = [
     nama: "Laragon",
     ket: "devEnv",
     dad: "1600",
-    url: "https://laragon.org/",
+    url: "https://laragon.org",
   },
 ];
 
@@ -158,7 +158,7 @@ export const listProyek = [
     id: 1,
     gambar: Proyek1,
     nama: "Refood App",
-    desk: "Refood app adalah apilikasi Pemesanan Makanan Berbasis website dengan firut Rekomendasi Menu Makanan",
+    desk: "Refood App is a web-based food ordering application featuring a food menu recommendation system.",
     tools: [
       "Javascript",
       "Node JS",
@@ -167,12 +167,22 @@ export const listProyek = [
       "Express",
       "MySQL",
     ],
-    dad: "200",
+    dad: "100",
     url_demo: "",
     url_project: "https://github.com/muhammadisa-n/fe-tugas-akhir",
   },
   {
     id: 2,
+    gambar: Proyek2,
+    nama: "Jejak Rempah Marketplace",
+    desk: "JRM is an online marketplace for buying and selling Indonesian spices, where users can shop or open stores based on historic spice trail points. I contributed to this project as a Backend Developer.",
+    tools: ["Javascript", "Node JS", "React Js", "Express JS", "MySQL"],
+    dad: "200",
+    url_demo: "",
+    url_project: "https://github.com/faisalalm01/be-marketplace-expressjs",
+  },
+  {
+    id: 3,
     gambar: Proyek2,
     nama: "Hackjog (Internship Project)",
     desk: "Hackjog adalah senbuah website untuk memberikan informasi tentang Hackjog Event",
@@ -182,7 +192,7 @@ export const listProyek = [
     url_project: "https://github.com/muhammadisa-n/hackjog-landingpage",
   },
   {
-    id: 3,
+    id: 4,
     gambar: Proyek3,
     nama: "Crime Detection",
     desk: "Crime Detection adalah aplikasi berbasis mobile untuk mendeteksi jenis kejahatan",
@@ -192,7 +202,7 @@ export const listProyek = [
     url_project: "https://github.com/muhammadisa-n/crime-detection-api",
   },
   {
-    id: 4,
+    id: 5,
     gambar: Proyek4,
     nama: "Rate Tol",
     desk: "Rate Tol adalah aplikasi berbasis website untuk mendeteksi tarif tol berdasrkan jenis kendaraan",
@@ -202,7 +212,7 @@ export const listProyek = [
     url_project: "https://github.com/muhammadisa-n/RateTol-Flask",
   },
   {
-    id: 5,
+    id: 6,
     gambar: Proyek5,
     nama: "Clone Trello",
     desk: "Membuat website seperi Trello",
@@ -212,10 +222,10 @@ export const listProyek = [
     url_project: "https://github.com/muhammadisa-n/clone-trello-app",
   },
   {
-    id: 6,
+    id: 7,
     gambar: Proyek6,
     nama: "Digital Library",
-    desk: "Webiste ini merupakan website manajemen perpustakaan",
+    desk: "This website serves as a library book management system",
     tools: ["PHP", "Laravel", "Bootstrap", "MySQL"],
     dad: "700",
     url_demo: "https://dev.muhammad-isa.my.id/library",

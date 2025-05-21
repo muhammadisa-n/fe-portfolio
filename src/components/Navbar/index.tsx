@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
-import idFlag from "../../assets/id.png";
-import enFlag from "../../assets/en.png";
+// import idFlag from "../../assets/id.png";
+// import enFlag from "../../assets/en.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const [dark, setDark] = useState(false);
-  const { t, i18n } = useTranslation();
-  const [language, setLanguage] = useState(i18n.language || "en");
+  const { t } = useTranslation();
+  // const { i18n } = useTranslation();
+  // const [language, setLanguage] = useState(i18n.language || "en");
 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
@@ -31,11 +32,11 @@ const Navbar = () => {
     localStorage.setItem("theme", newDarkMode ? "dark" : "light");
   };
 
-  const toggleLanguage = () => {
-    const newLang = language === "en" ? "id" : "en";
-    i18n.changeLanguage(newLang);
-    setLanguage(newLang);
-  };
+  // const toggleLanguage = () => {
+  //   const newLang = language === "en" ? "id" : "en";
+  //   i18n.changeLanguage(newLang);
+  //   setLanguage(newLang);
+  // };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -105,7 +106,7 @@ const Navbar = () => {
             {dark ? <IoSunny /> : <IoMoon />}
           </a>
         </li>
-        <li>
+        {/* <li>
           <img
             src={language === "en" ? idFlag : enFlag}
             alt="Toggle Language"
@@ -114,7 +115,7 @@ const Navbar = () => {
             title={t("menu6")}
             loading="lazy"
           />
-        </li>
+        </li> */}
       </ul>
     </div>
   );

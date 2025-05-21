@@ -1,10 +1,10 @@
-import AboutSection from "../../components/About";
-import ContactSection from "../../components/Contact";
+import AboutSection from "../../layouts/About";
+import ContactSection from "../../layouts/Contact";
 import Footer from "../../components/Footer";
-import HomeSection from "../../components/Home";
+import HomeSection from "../../layouts/Home";
 import Navbar from "../../components/Navbar";
 import Loading from "../../components/Loading";
-import ProjectsSection from "../../components/Projects";
+import ProjectsSection from "../../layouts/Projects";
 
 function HomePage() {
   return (
