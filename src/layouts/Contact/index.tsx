@@ -1,6 +1,115 @@
 import { useTranslation } from "react-i18next";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useEffect, useState } from "react";
 const ContactSection = () => {
   const { t } = useTranslation();
+  const [form, setForm] = useState({
+    fullName: "",
+    email: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [cooldown, setCooldown] = useState<number>(0);
+  useEffect(() => {
+    const lastSent = localStorage.getItem("lastContactSubmit");
+    if (lastSent) {
+      const diff = Date.now() - parseInt(lastSent);
+      const remaining = 120000 - diff;
+      if (remaining > 0) {
+        setCooldown(Math.floor(remaining / 1000));
+      }
+    }
+  }, []);
+  useEffect(() => {
+    if (cooldown <= 0) return;
+
+    const interval = setInterval(() => {
+      setCooldown((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [cooldown]);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (cooldown > 0) {
+      Swal.fire({
+        icon: "warning",
+        title: "Please Wait",
+        text: `You can send another message in ${cooldown} seconds.`,
+      });
+      return;
+    }
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        import.meta.env.VITE_API_BASE_URL + `/messages`,
+        form
+      );
+      if (response.status === 201) {
+        localStorage.setItem("lastContactSubmit", Date.now().toString());
+        setCooldown(120);
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: response.data.message || "Success",
+          confirmButtonText: "OK",
+        });
+      }
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        const responseData = error.response?.data;
+        if (
+          responseData?.status_code === 400 &&
+          Array.isArray(responseData?.errors)
+        ) {
+          const errorMessages = responseData.errors
+            .map(
+              (err: { field: string; message: string }) => `• ${err.message}`
+            )
+            .join("<br>");
+          Swal.fire({
+            icon: "error",
+            title: "Validation Error",
+            html: errorMessages,
+          });
+        } else if (responseData?.status_code === 403) {
+          Swal.fire({
+            icon: "warning",
+            title: "Warning",
+            html: responseData?.message,
+          });
+        } else if (responseData?.status_code === 401) {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            html: responseData?.message,
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            html: responseData?.message,
+          });
+        }
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className="contact mt-32 sm:p-10 p-0" id="contact">
       <h1
@@ -21,7 +130,7 @@ const ContactSection = () => {
         {t("contactp1")}
       </p>
       <form
-        action=""
+        onSubmit={handleSubmit}
         className="dark:bg-zinc-800 bg-zinc-200 p-10 sm:w-fit w-full mx-auto rounded-md"
         autoComplete="off"
         data-aos="fade-up"
@@ -40,6 +149,8 @@ const ContactSection = () => {
               placeholder={t("contactf1")}
               required
               autoComplete="off"
+              value={form.fullName}
+              onChange={handleChange}
               className="border dark:border-zinc-500 border-zinc-400 p-2 rounded-md"
             />
           </div>
@@ -52,6 +163,8 @@ const ContactSection = () => {
               name="email"
               placeholder={t("contactf2")}
               required
+              value={form.email}
+              onChange={handleChange}
               autoComplete="off"
               className="border dark:border-zinc-500 border-zinc-400 p-2 rounded-md"
             />
@@ -65,6 +178,8 @@ const ContactSection = () => {
               id="message"
               cols={45}
               rows={7}
+              value={form.message}
+              onChange={handleChange}
               placeholder={t("contactf3")}
               className="border dark:border-zinc-500 border-zinc-400  p-2 rounded-md"
               required
@@ -73,9 +188,14 @@ const ContactSection = () => {
           <div className="text-center ">
             <button
               type="submit"
+              disabled={loading || cooldown > 0}
               className="bg-secondary dark:bg-primary p-3 rounded-lg w-full cursor-pointer border dark:border-zinc-500 border-zinc-400 dark:hover:bg-secondary hover:bg-primary"
             >
-              {t("contactf4")}
+              {loading
+                ? t("contactf5")
+                : cooldown > 0
+                ? `Wait ${cooldown}s`
+                : t("contactf4")}
             </button>
           </div>
         </div>

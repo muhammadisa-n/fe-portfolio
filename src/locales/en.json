@@ -34,5 +34,6 @@
   "contactf1": "Full Name",
   "contactf2": "Email",
   "contactf3": "Message",
-  "contactf4": "Send Message"
+  "contactf4": "Send Message",
+  "contactf5": "Sending..."
 }

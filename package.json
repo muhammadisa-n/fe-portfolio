@@ -26,6 +26,7 @@
     "react-router-dom": "^7.6.0",
     "recharts": "^2.15.3",
     "redux-persist": "^6.0.0",
+    "sweetalert2": "^11.21.2",
     "tailwindcss": "^4.1.6"
   },
   "devDependencies": {
