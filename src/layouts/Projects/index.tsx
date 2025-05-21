@@ -135,7 +135,7 @@ const ProjectsSection = () => {
           <div className="flex justify-center gap-4 mt-10">
             {take < totalData && (
               <button
-                onClick={() => setTake((prev) => prev + 8)}
+                onClick={() => setTake((prev) => prev + 6)}
                 className="px-4 py-2 rounded-md bg-rose-500 dark:bg-primary dark:hover:bg-secondary hover:bg-rose-300 text-light"
               >
                 Load More
@@ -144,7 +144,7 @@ const ProjectsSection = () => {
 
             {take > 8 && (
               <button
-                onClick={() => setTake((prev) => Math.max(8, prev - 8))}
+                onClick={() => setTake((prev) => Math.max(8, prev - 6))}
                 className="px-4 py-2 rounded-md bg-zinc-500 dark:bg-zinc-700 dark:hover:bg-zinc-400 hover:bg-zinc-300 text-light hover:text-dark"
               >
                 Less More
