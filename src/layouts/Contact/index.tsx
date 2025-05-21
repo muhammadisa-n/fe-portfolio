@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
+import Loading from "../../components/Loading";
 const ContactSection = () => {
   const { t } = useTranslation();
   const [form, setForm] = useState({
@@ -112,6 +113,7 @@ const ContactSection = () => {
   };
   return (
     <div className="contact mt-32 sm:p-10 p-0" id="contact">
+      {loading ? <Loading /> : ""}
       <h1
         className="text-4xl mb-2 font-bold text-center"
         data-aos="fade-up"
