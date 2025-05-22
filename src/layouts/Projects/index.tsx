@@ -130,7 +130,7 @@ const ProjectsSection = () => {
                   <div>
                     <h1 className="text-2xl font-bold my-4">{project.name}</h1>
                     <p className="text-base/loose dark:text-light text-dark">
-                      {project.description}
+                      {t(project.description)}
                     </p>
                     <div className="flex flex-wrap gap-2 mt-2">
                       {project.project_has_tool.map((tool) => (
