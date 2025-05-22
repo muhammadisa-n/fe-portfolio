@@ -126,7 +126,7 @@ const AboutSection = () => {
                 </a>
               ))}
             </div>
-            <div className="flex justify-center gap-4 mt-10">
+            <div className="flex justify-center gap-4 mt-5">
               {take < totalData && (
                 <button
                   onClick={() => setTake((prev) => prev + 8)}
