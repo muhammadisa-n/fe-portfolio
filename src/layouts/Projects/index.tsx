@@ -29,7 +29,7 @@ export interface Project {
 
 const ProjectsSection = () => {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [take, setTake] = useState(6);
+  const [take, setTake] = useState(3);
   const [totalData, setTotalData] = useState(0);
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
@@ -135,16 +135,16 @@ const ProjectsSection = () => {
           <div className="flex justify-center gap-4 mt-10">
             {take < totalData && (
               <button
-                onClick={() => setTake((prev) => prev + 6)}
+                onClick={() => setTake((prev) => prev + 3)}
                 className="px-4 py-2 rounded-md bg-rose-500 dark:bg-primary dark:hover:bg-secondary hover:bg-rose-300 text-light"
               >
                 Load More
               </button>
             )}
 
-            {take > 8 && (
+            {take > 3 && (
               <button
-                onClick={() => setTake((prev) => Math.max(8, prev - 6))}
+                onClick={() => setTake((prev) => Math.max(3, prev - 3))}
                 className="px-4 py-2 rounded-md bg-zinc-500 dark:bg-zinc-700 dark:hover:bg-zinc-400 hover:bg-zinc-300 text-light hover:text-dark"
               >
                 Less More
