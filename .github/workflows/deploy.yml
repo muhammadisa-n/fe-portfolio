@@ -25,8 +25,8 @@ jobs:
           ssh -i ~/.ssh/id_ed25519 ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            cd /var/www/${{ secrets.VPS_USER }}/prod/my-portfolio/fe-portfolio
-            git config --global --add safe.directory /var/www/${{ secrets.VPS_USER }}/prod/my-portfolio/fe-portfolio
+            cd /var/www/${{ secrets.VPS_DOMAIN }}/my-portfolio/fe-portfolio
+            git config --global --add safe.directory /var/www/${{ secrets.VPS_DOMAIN }}/my-portfolio/fe-portfolio
             git pull origin main
             npm install
             npm run build
