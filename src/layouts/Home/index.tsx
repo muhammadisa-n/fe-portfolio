@@ -2,7 +2,12 @@ import { FaArrowDown, FaDownload } from "react-icons/fa";
 import HeroImage from "../../assets/hero.png";
 import { useTranslation } from "react-i18next";
 const HomeSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
+  const cvUrl =
+    lang === "id"
+      ? "https://drive.google.com/file/d/1VPwIC4Z4Y3g1cnbG7zekayaAWJKb1_Bo/view?usp=drivesdk"
+      : "https://drive.google.com/file/d/1j8mJHMoEbyWBeW9arZKlPjAuPBbxT_YR/view?usp=drivesdk";
   return (
     <div
       className="hero grid md:grid-cols-2 pt-12 items-center xl:gap-0 gap-6 grid-cols-1"
@@ -15,7 +20,7 @@ const HomeSection = () => {
         </p>
         <div className="flex items-center sm:gap-4 gap-2 ">
           <a
-            href="#"
+            href={cvUrl}
             className=" p-4 rounded-2xl bg-zinc-600 hover:bg-zinc-500 dark:bg-primary dark:hover:bg-rose-400 flex text-light"
           >
             {t("linkHome1")}
