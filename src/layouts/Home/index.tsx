@@ -6,8 +6,8 @@ const HomeSection = () => {
   const lang = i18n.language;
   const cvUrl =
     lang === "id"
-      ? "https://drive.google.com/file/d/1VPwIC4Z4Y3g1cnbG7zekayaAWJKb1_Bo/view?usp=drivesdk"
-      : "https://drive.google.com/file/d/1j8mJHMoEbyWBeW9arZKlPjAuPBbxT_YR/view?usp=drivesdk";
+      ? `${import.meta.env.VITE_API_BASE_URL}/files/download/cv-ind`
+      : "${import.meta.env.VITE_API_BASE_URL}/files/download/cv-eng";
   return (
     <div
       className="hero grid md:grid-cols-2 pt-12 items-center xl:gap-0 gap-6 grid-cols-1"
