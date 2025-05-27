@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import Loading from "../../components/Loading";
+import BlurImage from "../../components/BlurImage";
 
 export interface Tool {
   id: number;
@@ -94,21 +95,10 @@ const ProjectsSection = () => {
             id="projects"
             ref={containerRef}
           >
-            <h1
-              className="text-center text-4xl font-bold mb-2"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-              data-aos-once="true"
-            >
+            <h1 className="text-center text-4xl font-bold mb-2">
               {t("titleProject")}
             </h1>
-            <p
-              className="text-base/loose text-center opacity-50"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-              data-aos-delay="300"
-              data-aos-once="true"
-            >
+            <p className="text-base/loose text-center opacity-50">
               {t("projectP1")}
             </p>
 
@@ -117,16 +107,8 @@ const ProjectsSection = () => {
                 <div
                   key={project.id}
                   className="p-4 bg-zinc-100 dark:bg-zinc-800 rounded-md"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay={project.dad}
-                  data-aos-once="true"
                 >
-                  <img
-                    src={project.image_url}
-                    alt={project.name}
-                    loading="lazy"
-                  />
+                  <BlurImage src={project.image_url} alt={project.name} />
                   <div>
                     <h1 className="text-2xl font-bold my-4">{project.name}</h1>
                     <p className="text-base/loose dark:text-light text-dark">
