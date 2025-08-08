@@ -57,12 +57,17 @@ const ContactSection = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        import.meta.env.VITE_API_BASE_URL + `/messages`,
+        import.meta.env.VITE_API_BASE_URL + `/public/messages`,
         form
       );
       if (response.status === 201) {
         localStorage.setItem("lastContactSubmit", Date.now().toString());
         setCooldown(120);
+        setForm({
+          fullName: "",
+          email: "",
+          message: "",
+        });
         Swal.fire({
           icon: "success",
           title: "Success",

@@ -15,7 +15,7 @@ i18n
     backend: {
       loadPath: `${
         import.meta.env.VITE_API_BASE_URL
-      }/translations?lang={{lng}}`,
+      }/public/translations?lang={{lng}}`,
     },
     react: {
       useSuspense: false,

@@ -18,11 +18,12 @@ const AboutSection = () => {
   const [loading, setLoading] = useState(true);
   const [take, setTake] = useState(8);
   const [totalData, setTotalData] = useState(0);
+  const [totalDataProjects, setTotalDataProjects] = useState(0);
   useEffect(() => {
     const fetchTools = async (takeCount: number) => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_BASE_URL}/tools?take=${takeCount}`
+          `${import.meta.env.VITE_API_BASE_URL}/public/tools?take=${takeCount}`
         );
         if (response.data.status && response.data.data?.data) {
           const newData = response.data.data.data;
@@ -36,7 +37,21 @@ const AboutSection = () => {
         setLoading(false);
       }
     };
+
+    const fetchTotalProjects = async () => {
+      try {
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/public/projects/count`
+        );
+        if (res.data.status) {
+          setTotalDataProjects(res.data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching total projects:", error);
+      }
+    };
     fetchTools(take);
+    fetchTotalProjects();
   }, [take]);
 
   // const handleLoadMore = () => {
@@ -46,6 +61,53 @@ const AboutSection = () => {
   // const handleLessMore = () => {
   //   setTake(8);
   // };
+  const startCareer = new Date(2025, 0, 1);
+  const getExperienceValue = (startDate: Date) => {
+    const now = new Date();
+    let years = now.getFullYear() - startDate.getFullYear();
+    let months = now.getMonth() - startDate.getMonth();
+
+    if (months < 0) {
+      years -= 1;
+      months += 12;
+    }
+
+    if (years === 0) {
+      return months.toString(); // contoh "7"
+    } else if (years >= 1 && months === 0) {
+      return years.toString(); // contoh "1" atau "2"
+    } else {
+      return `${years}+`; // contoh "1+" atau "2+"
+    }
+  };
+  const getExperienceLabelKey = (startDate: Date) => {
+    const now = new Date();
+    let years = now.getFullYear() - startDate.getFullYear();
+    let months = now.getMonth() - startDate.getMonth();
+
+    if (months < 0) {
+      years -= 1;
+      months += 12;
+    }
+
+    return years === 0 ? "aboutP3Months" : "aboutP3Years";
+  };
+
+  const experienceValue = getExperienceValue(startCareer);
+  const experienceLabelKey = getExperienceLabelKey(startCareer);
+
+  const formatProjectCount = (count: number) => {
+    if (count <= 5) return count.toString();
+
+    const step = 10;
+    if (count < 10) {
+      // khusus antara 6-9, patokannya 5
+      return "5+";
+    }
+
+    const base = Math.floor(count / step) * step;
+    return count === base ? base.toString() : `${base}+`;
+  };
   return (
     <div id="about" className="about mt-32 py-10">
       <div
@@ -59,15 +121,15 @@ const AboutSection = () => {
           <div className="flex items-center gap-6">
             <div>
               <h1 className="text-4xl mb-1  text-light">
-                10 <span className="text-secondary">+</span>
+                {formatProjectCount(totalDataProjects)}
               </h1>
               <p className=" text-light">{t("aboutP2")}</p>
             </div>
             <div>
               <h1 className="text-4xl mb-1 text-light">
-                1 <span className="text-secondary">+</span>
+                {experienceValue} <span className="text-secondary"></span>
               </h1>
-              <p className=" text-light">{t("aboutP3")}</p>
+              <p className=" text-light">{t(experienceLabelKey)}</p>
             </div>
           </div>
         </div>

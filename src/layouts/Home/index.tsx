@@ -6,8 +6,8 @@ const HomeSection = () => {
   const lang = i18n.language;
   const cvUrl =
     lang === "id"
-      ? `${import.meta.env.VITE_API_BASE_URL}/files/download/cv-ind`
-      : `${import.meta.env.VITE_API_BASE_URL}/files/download/cv-eng`;
+      ? `${import.meta.env.VITE_API_BASE_URL}/public/files/download/cv-ind`
+      : `${import.meta.env.VITE_API_BASE_URL}/public/files/download/cv-eng`;
   return (
     <div
       className="hero grid md:grid-cols-2 pt-12 items-center xl:gap-0 gap-6 grid-cols-1"
