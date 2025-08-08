@@ -1,6 +1,7 @@
 import { FaArrowDown, FaDownload } from "react-icons/fa";
 import HeroImage from "../../assets/hero.png";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
 const HomeSection = () => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
@@ -12,6 +13,10 @@ const HomeSection = () => {
       : `${
           import.meta.env.VITE_API_BASE_URL
         }/public/files/download/CV Resume Muhammad Isa - ENG Version`;
+
+  const [imgSrc, setImgSrc] = useState(
+    `${import.meta.env.VITE_API_BASE_URL}/images/hero.png`
+  );
   return (
     <div
       className="hero grid md:grid-cols-2 pt-12 items-center xl:gap-0 gap-6 grid-cols-1"
@@ -40,11 +45,12 @@ const HomeSection = () => {
         </div>
       </div>
       <img
-        src={HeroImage}
+        src={imgSrc}
         alt="Hero Image"
         className="w-[500px] md:ml-auto animate__animated animate__fadeInUp animate__delay-3s"
         loading="lazy"
         title="Hero Image"
+        onError={() => setImgSrc(HeroImage)}
       />
     </div>
   );
