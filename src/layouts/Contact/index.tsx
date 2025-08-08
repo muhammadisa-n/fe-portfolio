@@ -71,7 +71,7 @@ const ContactSection = () => {
         Swal.fire({
           icon: "success",
           title: "Success",
-          text: response.data.message || "Success",
+          text: `${t("contactsweetalertMsgSuccess")}`,
           confirmButtonText: "OK",
         });
       }
