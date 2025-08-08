@@ -15,7 +15,7 @@ const HomeSection = () => {
         }/public/files/download/CV Resume Muhammad Isa - ENG Version`;
 
   const [imgSrc, setImgSrc] = useState(
-    `${import.meta.env.VITE_API_BASE_URL}/images/hero.png`
+    `${import.meta.env.VITE_BASE_URL}/images/hero.png`
   );
   return (
     <div
