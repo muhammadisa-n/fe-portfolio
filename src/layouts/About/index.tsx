@@ -44,7 +44,12 @@ const AboutSection = () => {
     const fetchTotalProjects = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_API_BASE_URL}/public/projects/count`
+          `${import.meta.env.VITE_API_BASE_URL}/public/projects/count`,
+          {
+            headers: {
+              "x-api-key": import.meta.env.VITE_API_KEY,
+            },
+          }
         );
         if (res.data.status) {
           setTotalDataProjects(res.data.data);
