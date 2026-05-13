@@ -9,13 +9,18 @@ import Navbar from "../../components/Navbar";
 import Loading from "../../components/Loading";
 import ProjectsSection from "../../layouts/Projects";
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 function HomePage() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
     let mounted = true;
 
-    i18nReady.finally(() => {
+    Promise.all([
+      i18nReady,
+      sleep(2000),
+    ]).finally(() => {
       if (mounted) {
         setReady(true);
       }
