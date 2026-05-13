@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import Loading from "../../components/Loading";
@@ -35,6 +35,7 @@ const ProjectsSection = () => {
   const { t } = useTranslation();
   const [initialLoading, setInitialLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
+  const projectsRef = useRef<HTMLDivElement>(null);
 
   const fetchProjects = async (takeCount: number) => {
     try {
@@ -67,13 +68,23 @@ const ProjectsSection = () => {
     fetchProjects(take);
   }, [take]);
 
+  const handleLessMore = () => {
+    projectsRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    setTimeout(() => {
+      setTake((prev) => Math.max(3, prev - 3));
+    }, 300);
+  };
   return (
     <>
       {initialLoading ? (
         <Loading fullscreen={false} />
       ) : (
         <>
-          <div className="projects mt-32 py-10" id="projects">
+          <div className="projects mt-32 py-10" id="projects" ref={projectsRef}>
             <h1 className="text-center text-4xl font-bold mb-2">
               {t("titleProject")}
             </h1>
@@ -142,7 +153,7 @@ const ProjectsSection = () => {
             {take > 3 && (
               <button
                 disabled={loadingMore}
-                onClick={() => setTake((prev) => Math.max(3, prev - 3))}
+                onClick={handleLessMore}
                 className="px-4 py-2 rounded-md bg-zinc-500 dark:bg-zinc-700 dark:hover:bg-zinc-400 hover:bg-zinc-300 text-light hover:text-dark"
               >
                 {loadingMore ? "Loading..." : "Less More"}

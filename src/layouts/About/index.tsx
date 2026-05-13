@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Loading from "../../components/Loading";
 
@@ -15,13 +15,22 @@ interface Tool {
 const AboutSection = () => {
   const { t } = useTranslation();
   const [tools, setTools] = useState<Tool[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [initialLoading, setInitialLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [take, setTake] = useState(8);
   const [totalData, setTotalData] = useState(0);
   const [totalDataProjects, setTotalDataProjects] = useState(0);
+  const toolsRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const fetchTools = async (takeCount: number) => {
+      const isInitial = tools.length === 0;
       try {
+        if (isInitial) {
+          setInitialLoading(true);
+        } else {
+          setLoadingMore(true);
+        }
+
         const response = await axios.get(
           `${import.meta.env.VITE_API_BASE_URL}/public/tools?take=${takeCount}`,
           {
@@ -37,7 +46,8 @@ const AboutSection = () => {
       } catch (error) {
         console.error("Error fetching tools:", error);
       } finally {
-        setLoading(false);
+        setInitialLoading(false);
+        setLoadingMore(false);
       }
     };
 
@@ -116,6 +126,17 @@ const AboutSection = () => {
     const base = Math.floor(count / step) * step;
     return count === base ? base.toString() : `${base}+`;
   };
+
+  const handleLessMore = () => {
+    toolsRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    setTimeout(() => {
+      setTake((prev) => Math.max(8, prev - 8));
+    }, 300);
+  };
   return (
     <div id="about" className="about mt-32 py-10">
       <div
@@ -142,7 +163,7 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-      <div className="tools mt-32 ">
+      <div className="tools mt-32 " ref={toolsRef}>
         <h1
           className="text-4xl/snug font-bold mb-4 "
           data-aos="fade-up"
@@ -160,9 +181,9 @@ const AboutSection = () => {
         >
           {t("toolsP4")}
         </p>
-        {loading ? (
-          <Loading fullscreen={false} />
-        ) : (
+        {initialLoading && <Loading fullscreen={false} />}
+
+        {!initialLoading && (
           <>
             <div className="tools-box mt-14 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
               {tools.map((tool) => (
@@ -185,7 +206,7 @@ const AboutSection = () => {
                       loading="lazy"
                     />
                     <div>
-                      <h4 className="font-semibold dark:font-bold ">
+                      <h4 className="font-semibold dark:font-bold">
                         {tool.name}
                       </h4>
                       <p className="dark:opacity-50 opacity-60">
@@ -196,22 +217,25 @@ const AboutSection = () => {
                 </a>
               ))}
             </div>
+
             <div className="flex justify-center gap-4 mt-5">
               {take < totalData && (
                 <button
+                  disabled={loadingMore}
                   onClick={() => setTake((prev) => prev + 8)}
-                  className="px-4 py-2 rounded-md bg-rose-500 dark:bg-primary dark:hover:bg-secondary hover:bg-rose-300 text-light"
+                  className="px-4 py-2 rounded-md bg-rose-500 dark:bg-primary dark:hover:bg-secondary hover:bg-rose-300 text-light disabled:opacity-50"
                 >
-                  Load More
+                  {loadingMore ? "Loading..." : "Load More"}
                 </button>
               )}
 
               {take > 8 && (
                 <button
-                  onClick={() => setTake((prev) => Math.max(8, prev - 8))}
-                  className="px-4 py-2 rounded-md bg-zinc-500 dark:bg-zinc-700 dark:hover:bg-zinc-400 hover:bg-zinc-300 text-light hover:text-dark"
+                  disabled={loadingMore}
+                  onClick={handleLessMore}
+                  className="px-4 py-2 rounded-md bg-zinc-500 dark:bg-zinc-700 dark:hover:bg-zinc-400 hover:bg-zinc-300 text-light hover:text-dark disabled:opacity-50"
                 >
-                  Less More
+                  {loadingMore ? "Loading..." : "Less More"}
                 </button>
               )}
             </div>
