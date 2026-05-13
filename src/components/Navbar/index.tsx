@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
-import idFlag from "../../assets/id.png";
-import enFlag from "../../assets/en.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -107,14 +105,32 @@ const Navbar = () => {
           </a>
         </li>
         <li>
-          <img
-            src={language === "en" ? idFlag : enFlag}
-            alt="Toggle Language"
-            className="w-full h-6 cursor-pointer hover:opacity-70 hidden md:block"
+          <button
+            type="button"
             onClick={toggleLanguage}
             title={t("menu6")}
-            loading="lazy"
-          />
+            className="hidden md:flex items-center gap-1 text-sm font-bold hover:opacity-70"
+          >
+            <span
+              className={
+                language === "en"
+                  ? "text-secondary dark:text-primary"
+                  : "opacity-50"
+              }
+            >
+              EN
+            </span>
+            <span className="opacity-50">|</span>
+            <span
+              className={
+                language === "id"
+                  ? "text-secondary dark:text-primary"
+                  : "opacity-50"
+              }
+            >
+              ID
+            </span>
+          </button>
         </li>
       </ul>
     </div>
