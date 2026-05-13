@@ -113,9 +113,11 @@ const ProjectsSection = () => {
                   key={project.id}
                   className="p-4 bg-zinc-100 dark:bg-zinc-800 rounded-md"
                 >
-                  <BlurImage src={project.image_url} alt={project.name} />
+                  <BlurImage src={project.image_url} alt={t(project.name)} />
                   <div>
-                    <h1 className="text-2xl font-bold my-4">{project.name}</h1>
+                    <h1 className="text-2xl font-bold my-4">
+                      {t(project.name)}
+                    </h1>
                     <p className="text-base/loose dark:text-light text-dark">
                       {t(project.description)}
                     </p>
