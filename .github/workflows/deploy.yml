@@ -20,14 +20,15 @@ jobs:
           port: ${{ secrets.VPS_SSH_PORT }}
           debug: true
           script: |
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-            nvm use 20.19.5
-            cd /var/www/${{ secrets.VPS_DOMAIN }}/fe-portfolio
-            git pull origin main
-            rm -f .env
-            echo "${{ secrets.ENV_FILE }}" > .env
-            npm install
-            npm run build
-            sudo systemctl restart nginx
-            echo "Build completed"
+            set -e
+             export NVM_DIR="$HOME/.nvm"
+             [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+             nvm use 20.19.5
+             cd /var/www/${{ secrets.VPS_DOMAIN }}/fe-portfolio
+             git pull origin main
+             rm -f .env
+             echo "${{ secrets.ENV_FILE }}" > .env
+             npm install
+             npm run build
+             sudo systemctl restart nginx
+             echo "Build completed"
