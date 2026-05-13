@@ -149,7 +149,7 @@ const AboutSection = () => {
           data-aos-duration="1000"
           data-aos-once="true"
         >
-          {t("aboutH1")}
+          {t("toolsH1")}
         </h1>
         <p
           className="xl:w-2/5 lg:w-2/4 md:w-2/3 sm:w-3/4 w-full  text-base/loose dark:opacity-50 opacity-80"
@@ -158,7 +158,7 @@ const AboutSection = () => {
           data-aos-delay="300"
           data-aos-once="true"
         >
-          {t("aboutP4")}
+          {t("toolsP4")}
         </p>
         {loading ? (
           <Loading />
