@@ -17,7 +17,7 @@ const Footer = () => {
         </a>
         <a
           href="#about"
-          title={t("menu2 ")}
+          title={t("menu2")}
           className="dark:hover:text-primary hover:text-secondary"
         >
           {t("menu2")}

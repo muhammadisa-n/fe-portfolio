@@ -1,24 +1,33 @@
 // src/i18n.ts
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import ChainedBackend from "i18next-chained-backend";
 import HttpBackend from "i18next-http-backend";
 
 i18n
-  .use(HttpBackend) // Menggunakan backend untuk fetch dari API
-  .use(initReactI18next) // Integrasi dengan React
+  .use(ChainedBackend)
+  .use(initReactI18next)
   .init({
-    lng: "en", // Default bahasa
-    fallbackLng: "en", // Jika bahasa tidak ditemukan
+    lng: "en",
+    fallbackLng: "en",
     interpolation: {
-      escapeValue: false, // Tidak perlu escape karena React sudah aman
+      escapeValue: false,
     },
     backend: {
-      loadPath: `${
-        import.meta.env.VITE_API_BASE_URL
-      }/public/translations?lang={{lng}}`,
-      customHeaders: {
-        "x-api-key": import.meta.env.VITE_API_KEY,
-      },
+      backends: [HttpBackend, HttpBackend],
+      backendOptions: [
+        {
+          loadPath: `${
+            import.meta.env.VITE_API_BASE_URL
+          }/public/translations?lang={{lng}}`,
+          customHeaders: {
+            "x-api-key": import.meta.env.VITE_API_KEY,
+          },
+        },
+        {
+          loadPath: "/locales/{{lng}}.json",
+        },
+      ],
     },
     react: {
       useSuspense: false,
