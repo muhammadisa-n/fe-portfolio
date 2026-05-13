@@ -201,7 +201,7 @@ const ContactSection = () => {
             <button
               type="submit"
               disabled={loading || cooldown > 0}
-              className="bg-secondary dark:bg-primary p-3 rounded-lg w-full cursor-pointer border dark:border-zinc-500 border-zinc-400 dark:hover:bg-secondary hover:bg-primary"
+              className="bg-secondary dark:bg-primary p-3 rounded-lg w-full cursor-pointer border font-semibold dark:border-zinc-500 border-zinc-400 dark:hover:bg-secondary hover:bg-primary"
             >
               {loading
                 ? t("contactf5")
