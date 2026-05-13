@@ -123,7 +123,7 @@ const ContactSection = () => {
   };
   return (
     <div className="contact mt-32 sm:p-10 p-0" id="contact">
-      {loading ? <Loading /> : ""}
+      {loading ? <Loading fullscreen={false} /> : ""}
       <h1
         className="text-4xl mb-2 font-bold text-center"
         data-aos="fade-up"

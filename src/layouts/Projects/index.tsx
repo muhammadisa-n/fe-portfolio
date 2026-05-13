@@ -1,5 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import Loading from "../../components/Loading";
@@ -33,16 +32,17 @@ const ProjectsSection = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [take, setTake] = useState(3);
   const [totalData, setTotalData] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [isInitialRender, setIsInitialRender] = useState(true);
   const { t } = useTranslation();
-
-  const containerRef = useRef<HTMLDivElement>(null);
-  const prevHeightRef = useRef<number>(0);
+  const [initialLoading, setInitialLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
 
   const fetchProjects = async (takeCount: number) => {
     try {
-      setLoading(true);
+      if (projects.length === 0) {
+        setInitialLoading(true);
+      } else {
+        setLoadingMore(true);
+      }
       const res = await axios.get(
         `${
           import.meta.env.VITE_API_BASE_URL
@@ -58,48 +58,22 @@ const ProjectsSection = () => {
     } catch (err) {
       console.error("Error fetching projects:", err);
     } finally {
-      setLoading(false);
+      setInitialLoading(false);
+      setLoadingMore(false);
     }
   };
 
   useEffect(() => {
-    const doFetch = async () => {
-      if (!isInitialRender && containerRef.current) {
-        // simpan tinggi sebelumnya
-        prevHeightRef.current = containerRef.current.offsetHeight;
-      }
-
-      await fetchProjects(take);
-
-      if (!isInitialRender && containerRef.current) {
-        // scroll smooth ke posisi setelah load more
-        setTimeout(() => {
-          window.scrollTo({
-            top: containerRef.current!.offsetTop + prevHeightRef.current - 100,
-            behavior: "smooth",
-          });
-        }, 100); // tunggu DOM update sedikit
-      }
-    };
-
-    doFetch();
+    fetchProjects(take);
   }, [take]);
-
-  useEffect(() => {
-    setIsInitialRender(false);
-  }, []);
 
   return (
     <>
-      {loading ? (
-        <Loading />
+      {initialLoading ? (
+        <Loading fullscreen={false} />
       ) : (
         <>
-          <div
-            className="projects mt-32 py-10"
-            id="projects"
-            ref={containerRef}
-          >
+          <div className="projects mt-32 py-10" id="projects">
             <h1 className="text-center text-4xl font-bold mb-2">
               {t("titleProject")}
             </h1>
@@ -158,18 +132,20 @@ const ProjectsSection = () => {
           <div className="flex justify-center gap-4 mt-5">
             {take < totalData && (
               <button
+                disabled={loadingMore}
                 onClick={() => setTake((prev) => prev + 3)}
                 className="px-4 py-2 rounded-md bg-rose-500 dark:bg-primary dark:hover:bg-secondary hover:bg-rose-300 text-light"
               >
-                Load More
+                {loadingMore ? "Loading..." : "Load More"}
               </button>
             )}
             {take > 3 && (
               <button
+                disabled={loadingMore}
                 onClick={() => setTake((prev) => Math.max(3, prev - 3))}
                 className="px-4 py-2 rounded-md bg-zinc-500 dark:bg-zinc-700 dark:hover:bg-zinc-400 hover:bg-zinc-300 text-light hover:text-dark"
               >
-                Less More
+                {loadingMore ? "Loading..." : "Less More"}
               </button>
             )}
           </div>

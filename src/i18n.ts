@@ -4,7 +4,7 @@ import { initReactI18next } from "react-i18next";
 import ChainedBackend from "i18next-chained-backend";
 import HttpBackend from "i18next-http-backend";
 
-i18n
+export const i18nReady = i18n
   .use(ChainedBackend)
   .use(initReactI18next)
   .init({

@@ -26,5 +26,7 @@
   "contactsweetalertMsgSuccess": "Message Sent Successfully",
   "notFoundTitle": "Page Not Found",
   "notFoundDesc": "The page you are looking for does not exist.",
-  "goHome": "Back to home"
+  "goHome": "Back to home",
+  "projecta1": "Live Demo",
+  "projecta2": "Project Link"
 }
