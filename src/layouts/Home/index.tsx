@@ -7,12 +7,8 @@ const HomeSection = () => {
   const lang = i18n.language;
   const cvUrl =
     lang === "id"
-      ? `${
-          import.meta.env.VITE_API_BASE_URL
-        }/public/files/download/CV Resume Muhammad Isa - IND Version`
-      : `${
-          import.meta.env.VITE_API_BASE_URL
-        }/public/files/download/CV Resume Muhammad Isa - ENG Version`;
+      ? `${import.meta.env.VITE_API_BASE_URL}/public/files/download/1`
+      : `${import.meta.env.VITE_API_BASE_URL}/public/files/download/2`;
 
   const [imgSrc, setImgSrc] = useState(
     `${import.meta.env.VITE_BASE_URL}/images/hero.png`
