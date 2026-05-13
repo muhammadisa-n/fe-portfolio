@@ -44,7 +44,12 @@ const ProjectsSection = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        `${import.meta.env.VITE_API_BASE_URL}/public/projects?take=${takeCount}`
+        `${
+          import.meta.env.VITE_API_BASE_URL
+        }/public/projects?take=${takeCount}`,
+        {
+          headers: { "x-api-key": import.meta.env.VITE_API_KEY },
+        }
       );
       if (res.data.status) {
         setProjects(res.data.data.data);

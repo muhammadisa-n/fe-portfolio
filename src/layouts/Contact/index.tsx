@@ -58,7 +58,12 @@ const ContactSection = () => {
     try {
       const response = await axios.post(
         import.meta.env.VITE_API_BASE_URL + `/public/messages`,
-        form
+        form,
+        {
+          headers: {
+            "x-api-key": import.meta.env.VITE_API_KEY,
+          },
+        }
       );
       if (response.status === 201) {
         localStorage.setItem("lastContactSubmit", Date.now().toString());

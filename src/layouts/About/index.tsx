@@ -23,7 +23,10 @@ const AboutSection = () => {
     const fetchTools = async (takeCount: number) => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_BASE_URL}/public/tools?take=${takeCount}`
+          `${import.meta.env.VITE_API_BASE_URL}/public/tools?take=${takeCount}`,
+          {
+            headers: { "x-api-key": import.meta.env.VITE_API_KEY },
+          }
         );
         if (response.data.status && response.data.data?.data) {
           const newData = response.data.data.data;

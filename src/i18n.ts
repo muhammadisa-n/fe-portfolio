@@ -16,6 +16,9 @@ i18n
       loadPath: `${
         import.meta.env.VITE_API_BASE_URL
       }/public/translations?lang={{lng}}`,
+      customHeaders: {
+        "x-api-key": import.meta.env.VITE_API_KEY,
+      },
     },
     react: {
       useSuspense: false,

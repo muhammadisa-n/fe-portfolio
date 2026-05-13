@@ -29,4 +29,5 @@ jobs:
             echo "${{ secrets.ENV_FILE }}" > .env
             npm install
             npm run build
+            sudo systemctl restart nginx
             echo "Build completed"
