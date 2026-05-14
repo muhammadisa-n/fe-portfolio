@@ -21,6 +21,7 @@ export const dummyProjects = [
         tool: {
           id: 1,
           name: "Javascript",
+          tool_url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
         },
       },
       {
@@ -29,6 +30,7 @@ export const dummyProjects = [
         tool: {
           id: 2,
           name: "Python",
+          tool_url: "https://www.python.org/",
         },
       },
       {
@@ -37,6 +39,7 @@ export const dummyProjects = [
         tool: {
           id: 3,
           name: "React JS",
+          tool_url: "https://react.dev/",
         },
       },
       {
@@ -45,6 +48,7 @@ export const dummyProjects = [
         tool: {
           id: 4,
           name: "Express JS",
+          tool_url: "https://expressjs.com/",
         },
       },
       {
@@ -53,6 +57,7 @@ export const dummyProjects = [
         tool: {
           id: 5,
           name: "Flask",
+          tool_url: "https://flask.palletsprojects.com/",
         },
       },
       {
@@ -61,6 +66,7 @@ export const dummyProjects = [
         tool: {
           id: 6,
           name: "MySQL",
+          tool_url: "https://www.mysql.com/",
         },
       },
     ],
@@ -84,6 +90,7 @@ export const dummyProjects = [
         tool: {
           id: 1,
           name: "Javascript",
+          tool_url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
         },
       },
       {
@@ -92,6 +99,7 @@ export const dummyProjects = [
         tool: {
           id: 2,
           name: "React JS",
+          tool_url: "https://react.dev/",
         },
       },
       {
@@ -100,6 +108,7 @@ export const dummyProjects = [
         tool: {
           id: 3,
           name: "Express JS",
+          tool_url: "https://expressjs.com/",
         },
       },
       {
@@ -108,6 +117,7 @@ export const dummyProjects = [
         tool: {
           id: 4,
           name: "MySQL",
+          tool_url: "https://www.mysql.com/",
         },
       },
     ],
@@ -131,6 +141,7 @@ export const dummyProjects = [
         tool: {
           id: 1,
           name: "Javascript",
+          tool_url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
         },
       },
       {
@@ -139,6 +150,7 @@ export const dummyProjects = [
         tool: {
           id: 2,
           name: "Vue JS",
+          tool_url: "https://vuejs.org/",
         },
       },
       {
@@ -147,6 +159,7 @@ export const dummyProjects = [
         tool: {
           id: 3,
           name: "Express JS",
+          tool_url: "https://expressjs.com/",
         },
       },
       {
@@ -155,6 +168,7 @@ export const dummyProjects = [
         tool: {
           id: 4,
           name: "MySQL",
+          tool_url: "https://www.mysql.com/",
         },
       },
     ],

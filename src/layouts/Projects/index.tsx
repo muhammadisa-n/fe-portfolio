@@ -8,6 +8,7 @@ import { dummyProjects } from "../../data/projects";
 export interface Tool {
   id: number;
   name: string;
+  tool_url: string;
 }
 export interface ProjectHasTool {
   project_id: number;
@@ -115,12 +116,15 @@ const ProjectsSection = () => {
                     </p>
                     <div className="flex flex-wrap gap-2 mt-2">
                       {project.project_has_tool.map((tool) => (
-                        <p
+                        <a
+                          href={tool.tool.tool_url}
                           key={tool.tool_id}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="py-1 px-3 border border-zinc-500 rounded-md font-semibold bg-zinc-200 dark:bg-zinc-600 opacity-80 dark:opacity-100"
                         >
                           {tool.tool.name}
-                        </p>
+                        </a>
                       ))}
                     </div>
                     <div className="mt-8 text-center">
