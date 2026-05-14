@@ -75,7 +75,7 @@ const AboutSection = () => {
         }
       } catch (error) {
         console.error("Error fetching total projects:", error);
-        setTotalDataProjects(5);
+        setTotalDataProjects(3);
       }
     };
     fetchTools(take);
