@@ -2,8 +2,10 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Loading from "../../components/Loading";
+import { dummyTools } from "../../data/tools";
+import noImageDefault from "../../assets/no_image.png";
 
-interface Tool {
+export interface Tool {
   id: number;
   name: string;
   description: string;
@@ -45,6 +47,13 @@ const AboutSection = () => {
         }
       } catch (error) {
         console.error("Error fetching tools:", error);
+        const fallbackTools = dummyTools
+          .filter((tool) => tool.show)
+          .slice(0, takeCount);
+
+        setTools(fallbackTools);
+
+        setTotalData(dummyTools.filter((tool) => tool.show).length);
       } finally {
         setInitialLoading(false);
         setLoadingMore(false);
@@ -66,6 +75,7 @@ const AboutSection = () => {
         }
       } catch (error) {
         console.error("Error fetching total projects:", error);
+        setTotalDataProjects(5);
       }
     };
     fetchTools(take);
@@ -206,7 +216,7 @@ const AboutSection = () => {
                 >
                   <div className="group flex items-center gap-2 p-3 border dark:border-zinc-600 border-zinc-300 rounded-md dark:hover:bg-zinc-800 hover:bg-zinc-300">
                     <img
-                      src={tool.image_url}
+                      src={tool.image_url || noImageDefault}
                       alt="Tools Image"
                       className="w-14 bg-zinc-700 p-1 group-hover:bg-zinc-800"
                       loading="lazy"

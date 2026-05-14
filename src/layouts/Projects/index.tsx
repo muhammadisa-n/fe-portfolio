@@ -3,7 +3,8 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 import Loading from "../../components/Loading";
 import BlurImage from "../../components/BlurImage";
-
+import noImageDefault from "../../assets/no_image.png";
+import { dummyProjects } from "../../data/projects";
 export interface Tool {
   id: number;
   name: string;
@@ -58,6 +59,9 @@ const ProjectsSection = () => {
       }
     } catch (err) {
       console.error("Error fetching projects:", err);
+      const fallbackProjects = dummyProjects.slice(0, takeCount);
+      setProjects(fallbackProjects);
+      setTotalData(dummyProjects.length);
     } finally {
       setInitialLoading(false);
       setLoadingMore(false);
@@ -98,7 +102,10 @@ const ProjectsSection = () => {
                   key={project.id}
                   className="p-4 bg-zinc-100 dark:bg-zinc-800 rounded-md"
                 >
-                  <BlurImage src={project.image_url} alt={t(project.name)} />
+                  <BlurImage
+                    src={project.image_url || noImageDefault}
+                    alt={t(project.name)}
+                  />
                   <div>
                     <h1 className="text-2xl font-bold my-4">
                       {t(project.name)}
@@ -119,7 +126,7 @@ const ProjectsSection = () => {
                     <div className="mt-8 text-center">
                       <a
                         href={project.demo_url}
-                        className="p-3 rounded-lg block border dark:border-zinc-600 border-zinc-500 hover:bg-primary dark:hover:bg-secondary dark:bg-primary bg-secondary font-semibold"
+                        className="p-3 rounded-lg block bg-zinc-600 hover:bg-zinc-500 dark:bg-primary dark:hover:bg-rose-400  text-light"
                         target="_blank"
                       >
                         {t("projecta1")}
@@ -128,7 +135,7 @@ const ProjectsSection = () => {
                     <div className="mt-2 text-center">
                       <a
                         href={project.project_url}
-                        className="p-3 rounded-lg block border dark:border-zinc-600 border-zinc-500 hover:bg-primary dark:hover:bg-secondary dark:bg-primary bg-secondary font-semibold"
+                        className="p-3 rounded-lg block font-semibold bg-primary hover:bg-rose-400 dark:bg-zinc-500 dark:hover:bg-zinc-400 text-light"
                         target="_blank"
                       >
                         {t("projecta2")}

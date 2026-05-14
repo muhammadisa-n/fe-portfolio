@@ -28,5 +28,16 @@
   "notFoundDesc": "The page you are looking for does not exist.",
   "goHome": "Back to home",
   "projecta1": "Live Demo",
-  "projecta2": "Project Link"
+  "projecta2": "Repository",
+  "tool.type.language": "Language",
+  "tool.type.runtime": "Runtime",
+  "tool.type.framework": "Framework",
+  "tool.type.database": "Database",
+  "tool.type.tools": "Tools",
+  "projects.1.name": "Refood App",
+  "projects.1.description": "Refood App is a food ordering website featuring a Decision Tree–based menu recommendation system to help users choose meals based on their preferences. This project was developed as a final semester assignment.",
+  "projects.2.name": "Jejak Rempah Marketplace (JRM)",
+  "projects.2.description": "JRM (Jejak Rempah Marketplace) is a spice marketplace platform that allows users to buy, sell, and create their own stores based on available spice network locations across Indonesia.",
+  "projects.3.name": "Sistem Informasi Hackjog",
+  "projects.3.description": "Hackjog Information System is an event information website developed during an internship at PT Hacktivate Teknologi Indonesia with a team of 4 members to provide easier access to Hackjog event information."
 }

@@ -83,6 +83,16 @@ const ContactSection = () => {
     } catch (error) {
       if (axios.isAxiosError(error)) {
         const responseData = error.response?.data;
+
+        if (!error.response) {
+          Swal.fire({
+            icon: "error",
+            title: "Server Bermasalah",
+            text: "Tidak bisa mengirim pesan. Server sedang bermasalah, silakan coba lagi nanti.",
+          });
+          return;
+        }
+
         if (
           responseData?.status_code === 400 &&
           Array.isArray(responseData?.errors)
@@ -92,6 +102,7 @@ const ContactSection = () => {
               (err: { field: string; message: string }) => `• ${err.message}`
             )
             .join("<br>");
+
           Swal.fire({
             icon: "error",
             title: "Validation Error",
@@ -113,9 +124,17 @@ const ContactSection = () => {
           Swal.fire({
             icon: "error",
             title: "Error",
-            html: responseData?.message,
+            html:
+              responseData?.message ||
+              "Tidak bisa mengirim pesan. Server sedang bermasalah.",
           });
         }
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Tidak bisa mengirim pesan. Terjadi kesalahan tidak diketahui.",
+        });
       }
     } finally {
       setLoading(false);
@@ -201,7 +220,7 @@ const ContactSection = () => {
             <button
               type="submit"
               disabled={loading || cooldown > 0}
-              className="bg-secondary dark:bg-primary p-3 rounded-lg w-full cursor-pointer border font-semibold dark:border-zinc-500 border-zinc-400 dark:hover:bg-secondary hover:bg-primary"
+              className="y p-3 rounded-lg w-full cursor-pointer border font-semibold  bg-zinc-600 hover:bg-zinc-500 dark:bg-primary dark:hover:bg-rose-400  text-light"
             >
               {loading
                 ? t("contactf5")
