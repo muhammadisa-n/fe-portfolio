@@ -39,5 +39,6 @@
   "projects.2.name": "Jejak Rempah Marketplace (JRM)",
   "projects.2.description": "JRM (Jejak Rempah Marketplace) is a spice marketplace platform that allows users to buy, sell, and create their own stores based on available spice network locations across Indonesia.",
   "projects.3.name": "Sistem Informasi Hackjog",
-  "projects.3.description": "Hackjog Information System is an event information website developed during an internship at PT Hacktivate Teknologi Indonesia with a team of 4 members to provide easier access to Hackjog event information."
+  "projects.3.description": "Hackjog Information System is an event information website developed during an internship at PT Hacktivate Teknologi Indonesia with a team of 4 members to provide easier access to Hackjog event information.",
+  "contactServerError": "Unable to send message. The server is currently experiencing issues."
 }

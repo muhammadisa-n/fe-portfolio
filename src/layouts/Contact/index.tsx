@@ -88,7 +88,7 @@ const ContactSection = () => {
           Swal.fire({
             icon: "error",
             title: "Server Bermasalah",
-            text: "Tidak bisa mengirim pesan. Server sedang bermasalah, silakan coba lagi nanti.",
+            text: t("contactServerError"),
           });
           return;
         }
@@ -124,16 +124,14 @@ const ContactSection = () => {
           Swal.fire({
             icon: "error",
             title: "Error",
-            html:
-              responseData?.message ||
-              "Tidak bisa mengirim pesan. Server sedang bermasalah.",
+            html: responseData?.message || t("contactServerError"),
           });
         }
       } else {
         Swal.fire({
           icon: "error",
           title: "Error",
-          text: "Tidak bisa mengirim pesan. Terjadi kesalahan tidak diketahui.",
+          text: t("contactServerError"),
         });
       }
     } finally {
