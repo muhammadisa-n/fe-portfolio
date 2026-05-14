@@ -9,7 +9,9 @@ interface Tool {
   description: string;
   image_url: string;
   tool_url: string;
-  dad: number;
+  dad?: number;
+  type?: string;
+  sort_order?: number;
 }
 
 const AboutSection = () => {
@@ -38,10 +40,8 @@ const AboutSection = () => {
           }
         );
         if (response.data.status && response.data.data?.data) {
-          const newData = response.data.data.data;
           setTools(response.data.data.data);
           setTotalData(response.data.data.total_data);
-          setTools(newData);
         }
       } catch (error) {
         console.error("Error fetching tools:", error);
@@ -137,6 +137,12 @@ const AboutSection = () => {
       setTake((prev) => Math.max(8, prev - 8));
     }, 300);
   };
+
+  const getToolTypeLabel = (type?: string) => {
+    if (!type) return "";
+
+    return t(`tool.type.${type}`);
+  };
   return (
     <div id="about" className="about mt-32 py-10">
       <div
@@ -210,7 +216,7 @@ const AboutSection = () => {
                         {tool.name}
                       </h4>
                       <p className="dark:opacity-50 opacity-60">
-                        {t(tool.description)}
+                        {getToolTypeLabel(tool.type)}
                       </p>
                     </div>
                   </div>
