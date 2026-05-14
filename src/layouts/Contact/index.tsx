@@ -87,7 +87,7 @@ const ContactSection = () => {
         if (!error.response) {
           Swal.fire({
             icon: "error",
-            title: "Server Bermasalah",
+            title: "Error",
             text: t("contactServerError"),
           });
           return;
