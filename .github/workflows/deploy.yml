@@ -1,4 +1,4 @@
-name: Deploy On VPS
+name: Deploy To VPS
 
 on:
   push:
@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@master
@@ -18,17 +19,24 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_KEY }}
           port: ${{ secrets.VPS_SSH_PORT }}
-          debug: true
           script: |
             set -e
-             export NVM_DIR="$HOME/.nvm"
-             [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-             nvm use 20.19.5
-             cd /var/www/${{ secrets.VPS_DOMAIN }}/fe-portfolio
-             git pull origin main
-             rm -f .env
-             echo "${{ secrets.ENV_FILE }}" > .env
-             npm install
-             npm run build
-             sudo systemctl restart nginx
-             echo "Build completed"
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+            nvm use 20.19.5
+            cd /var/www/${{ secrets.VPS_DOMAIN }}/fe-portfolio
+            echo "Pull latest code..."
+            git pull origin main
+            echo "Create env file..."
+            rm -f .env
+            cat > .env << 'EOF'
+            ${{ secrets.ENV_FILE }}
+            EOF
+            echo "Install dependencies..."
+            npm install
+            echo "Build application..."
+            npm run build
+            echo "Reload nginx..."
+            sudo nginx -t
+            sudo systemctl reload nginx
+            echo "Deploy completed successfully"
