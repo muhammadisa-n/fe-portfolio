@@ -9,8 +9,8 @@ const HomeSection = () => {
   const lang = i18n.language;
   const apiCvUrl =
     lang === "id"
-      ? `${import.meta.env.VITE_API_BASE_URL}/public/files/download/1`
-      : `${import.meta.env.VITE_API_BASE_URL}/public/files/download/2`;
+      ? `${import.meta.env.VITE_API_BASE_URL}/public/files/download/INDONESIA`
+      : `${import.meta.env.VITE_API_BASE_URL}/public/files/download/ENGLISH`;
 
   const fallbackCvUrl =
     lang === "id"
