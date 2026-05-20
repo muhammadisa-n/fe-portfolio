@@ -4,20 +4,27 @@ import noImageDefault from "../../assets/no_image.png";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import axios from "axios";
+
 const HomeSection = () => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
-  const apiCvUrl =
-    lang === "id"
-      ? `${import.meta.env.VITE_API_BASE_URL}/public/files/download/INDONESIA`
-      : `${import.meta.env.VITE_API_BASE_URL}/public/files/download/ENGLISH`;
+
+  const version = lang === "id" ? "INDONESIA" : "ENGLISH";
+
+  const apiDownloadUrl = `${
+    import.meta.env.VITE_API_BASE_URL
+  }/public/files/download/${version}`;
+
+  const apiCheckUrl = `${
+    import.meta.env.VITE_API_BASE_URL
+  }/public/files/check/${version}`;
 
   const fallbackCvUrl =
     lang === "id"
       ? "https://drive.google.com/file/d/1VPwIC4Z4Y3g1cnbG7zekayaAWJKb1_Bo/view?usp=sharing"
       : "https://drive.google.com/file/d/1j8mJHMoEbyWBeW9arZKlPjAuPBbxT_YR/view?usp=drive_link";
 
-  const [cvUrl, setCvUrl] = useState(apiCvUrl);
+  const [cvUrl, setCvUrl] = useState(apiDownloadUrl);
 
   const [imgSrc, setImgSrc] = useState(
     `${import.meta.env.VITE_BASE_URL}/images/hero.png`
@@ -26,13 +33,13 @@ const HomeSection = () => {
   useEffect(() => {
     const checkCvUrl = async () => {
       try {
-        await axios.head(apiCvUrl, {
+        await axios.get(apiCheckUrl, {
           headers: {
             "x-api-key": import.meta.env.VITE_API_KEY,
           },
         });
 
-        setCvUrl(apiCvUrl);
+        setCvUrl(apiDownloadUrl);
       } catch (error) {
         console.error("CV API error, using fallback Google Drive:", error);
         setCvUrl(fallbackCvUrl);
@@ -40,7 +47,8 @@ const HomeSection = () => {
     };
 
     checkCvUrl();
-  }, [apiCvUrl, fallbackCvUrl]);
+  }, [apiCheckUrl, apiDownloadUrl, fallbackCvUrl]);
+
   return (
     <div
       className="hero grid md:grid-cols-2 pt-12 items-center xl:gap-0 gap-6 grid-cols-1"
@@ -48,17 +56,22 @@ const HomeSection = () => {
     >
       <div className="animate__animated animate__fadeInUp animate__delay-2s">
         <h1 className="text-5xl/tight font-bold mb-6">{t("homeWelcome")}</h1>
-        <p className="text-base/loose mb-6 opacity-70 text-dark dark:text-light dark:opacity-50 ">
+
+        <p className="text-base/loose mb-6 opacity-70 text-dark dark:text-light dark:opacity-50">
           {t("homeParagraph")}
         </p>
-        <div className="flex items-center sm:gap-4 gap-2 ">
+
+        <div className="flex items-center sm:gap-4 gap-2">
           <a
             href={cvUrl}
-            className=" p-4 rounded-2xl bg-zinc-600 hover:bg-zinc-500 dark:bg-primary dark:hover:bg-rose-400 flex text-light"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-4 rounded-2xl bg-zinc-600 hover:bg-zinc-500 dark:bg-primary dark:hover:bg-rose-400 flex text-light"
           >
             {t("linkHome1")}
             <FaDownload className="text-sm mt-1 mx-2" />
           </a>
+
           <a
             href="#projects"
             className="bg-primary p-4 rounded-2xl hover:bg-rose-400 dark:bg-zinc-500 dark:hover:bg-zinc-400 flex text-light"
@@ -68,8 +81,9 @@ const HomeSection = () => {
           </a>
         </div>
       </div>
+
       <img
-        src={imgSrc ? imgSrc : noImageDefault}
+        src={imgSrc || noImageDefault}
         alt="Hero Image"
         className="w-[500px] md:ml-auto animate__animated animate__fadeInUp animate__delay-3s"
         loading="lazy"
