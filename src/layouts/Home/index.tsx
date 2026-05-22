@@ -26,9 +26,10 @@ const HomeSection = () => {
 
   const [cvUrl, setCvUrl] = useState(apiDownloadUrl);
 
-  const [imgSrc, setImgSrc] = useState(
-    `${import.meta.env.VITE_BASE_URL}/images/hero.png`
-  );
+  const [imgSrc, setImgSrc] = useState(HeroImage);
+  const apiHeroImageUrl = `${
+    import.meta.env.VITE_API_BASE_URL
+  }/public/files/hero-image`;
 
   useEffect(() => {
     const checkCvUrl = async () => {
@@ -46,8 +47,30 @@ const HomeSection = () => {
       }
     };
 
+    const checkHeroImage = async () => {
+      try {
+        const response = await axios.get(apiHeroImageUrl, {
+          headers: {
+            "x-api-key": import.meta.env.VITE_API_KEY,
+          },
+        });
+
+        const imageUrl = response.data?.data?.url;
+
+        if (imageUrl) {
+          setImgSrc(imageUrl);
+        } else {
+          setImgSrc(HeroImage);
+        }
+      } catch (error) {
+        console.error("Hero image API error, using fallback image:", error);
+        setImgSrc(HeroImage);
+      }
+    };
+
     checkCvUrl();
-  }, [apiCheckUrl, apiDownloadUrl, fallbackCvUrl]);
+    checkHeroImage();
+  }, [apiCheckUrl, apiDownloadUrl, fallbackCvUrl, apiHeroImageUrl]);
 
   return (
     <div

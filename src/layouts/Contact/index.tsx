@@ -1,9 +1,10 @@
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useEffect, useState } from "react";
-import Loading from "../../components/Loading";
+import { useState, useEffect } from "react";
+
 const ContactSection = () => {
+  const [loadingDots, setLoadingDots] = useState("");
   const { t } = useTranslation();
   const [form, setForm] = useState({
     fullName: "",
@@ -11,49 +12,30 @@ const ContactSection = () => {
     message: "",
   });
   const [loading, setLoading] = useState(false);
-  const [cooldown, setCooldown] = useState<number>(0);
-  useEffect(() => {
-    const lastSent = localStorage.getItem("lastContactSubmit");
-    if (lastSent) {
-      const diff = Date.now() - parseInt(lastSent);
-      const remaining = 120000 - diff;
-      if (remaining > 0) {
-        setCooldown(Math.floor(remaining / 1000));
-      }
-    }
-  }, []);
-  useEffect(() => {
-    if (cooldown <= 0) return;
-
-    const interval = setInterval(() => {
-      setCooldown((prev) => {
-        if (prev <= 1) {
-          clearInterval(interval);
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [cooldown]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+  useEffect(() => {
+    if (!loading) {
+      setLoadingDots("");
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setLoadingDots((prev) => {
+        if (prev === "...") return "";
+        return prev + ".";
+      });
+    }, 400);
+
+    return () => clearInterval(interval);
+  }, [loading]);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (cooldown > 0) {
-      Swal.fire({
-        icon: "warning",
-        title: "Please Wait",
-        text: `You can send another message in ${cooldown} seconds.`,
-      });
-      return;
-    }
     setLoading(true);
     try {
       const response = await axios.post(
@@ -66,8 +48,6 @@ const ContactSection = () => {
         }
       );
       if (response.status === 201) {
-        localStorage.setItem("lastContactSubmit", Date.now().toString());
-        setCooldown(120);
         setForm({
           fullName: "",
           email: "",
@@ -108,6 +88,14 @@ const ContactSection = () => {
             title: "Validation Error",
             html: errorMessages,
           });
+        } else if (responseData?.status_code === 429) {
+          Swal.fire({
+            icon: "warning",
+            title: "Too Many Requests",
+            html:
+              responseData?.message ||
+              "Terlalu banyak request. Silakan coba lagi beberapa saat.",
+          });
         } else if (responseData?.status_code === 403) {
           Swal.fire({
             icon: "warning",
@@ -138,9 +126,9 @@ const ContactSection = () => {
       setLoading(false);
     }
   };
+
   return (
     <div className="contact mt-32 sm:p-10 p-0" id="contact">
-      {loading ? <Loading fullscreen={false} /> : ""}
       <h1
         className="text-4xl mb-2 font-bold text-center"
         data-aos="fade-up"
@@ -217,14 +205,10 @@ const ContactSection = () => {
           <div className="text-center ">
             <button
               type="submit"
-              disabled={loading || cooldown > 0}
-              className="y p-3 rounded-lg w-full cursor-pointer border font-semibold  bg-zinc-600 hover:bg-zinc-500 dark:bg-primary dark:hover:bg-rose-400  text-light"
+              disabled={loading}
+              className="y p-3 rounded-lg w-full cursor-pointer border font-semibold bg-zinc-600 hover:bg-zinc-500 dark:bg-primary dark:hover:bg-rose-400 text-light disabled:cursor-not-allowed disabled:opacity-70"
             >
-              {loading
-                ? t("contactf5")
-                : cooldown > 0
-                ? `Wait ${cooldown}s`
-                : t("contactf4")}
+              {loading ? `${t("contactf5")}${loadingDots}` : t("contactf4")}
             </button>
           </div>
         </div>
