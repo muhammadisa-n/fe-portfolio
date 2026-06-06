@@ -179,15 +179,20 @@ const ProjectsSection = () => {
                         </a>
                       ))}
                     </div>
-                    <div className="mt-8 text-center">
-                      <a
-                        href={project.demo_url}
-                        className="p-3 rounded-lg block bg-zinc-600 hover:bg-zinc-500 dark:bg-primary dark:hover:bg-rose-400  text-light"
-                        target="_blank"
-                      >
-                        {t("projecta1")}
-                      </a>
-                    </div>
+                    {project.demo_url ? (
+                      <div className="mt-8 text-center">
+                        <a
+                          href={project.demo_url}
+                          className="p-3 rounded-lg block bg-zinc-600 hover:bg-zinc-500 dark:bg-primary dark:hover:bg-rose-400  text-light"
+                          target="_blank"
+                        >
+                          {t("projecta1")}
+                        </a>
+                      </div>
+                    ) : (
+                      <></>
+                    )}
+
                     <div className="mt-2 text-center">
                       <a
                         href={project.project_url}
