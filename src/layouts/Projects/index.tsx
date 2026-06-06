@@ -34,7 +34,6 @@ export interface Project {
   description: string;
   demo_url: string;
   project_url: string;
-  dad: number;
   created_at: string;
   updated_at: string;
   deleted_at: string | null;
@@ -99,6 +98,9 @@ const ProjectsSection = () => {
       setTake((prev) => Math.max(3, prev - 3));
     }, 300);
   };
+  const getProjectDad = (index: number) => {
+    return ((index % 3) + 1) * 100;
+  };
   return (
     <>
       {initialLoading ? (
@@ -114,9 +116,11 @@ const ProjectsSection = () => {
             </p>
 
             <div className="projects-box m-14 grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
-              {projects.map((project) => (
+              {projects.map((project, index) => (
                 <div
                   key={project.id}
+                  data-aos="fade-up"
+                  data-aos-duration={getProjectDad(index)}
                   className="p-4 bg-zinc-100 dark:bg-zinc-800 rounded-md"
                 >
                   {project.images && project.images.length > 0 ? (

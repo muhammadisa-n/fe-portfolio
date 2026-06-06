@@ -153,6 +153,10 @@ const AboutSection = () => {
 
     return t(`tool.type.${type}`);
   };
+
+  const getToolDad = (index: number) => {
+    return ((index % 8) + 1) * 100;
+  };
   return (
     <div id="about" className="about mt-32 py-10">
       <div
@@ -202,7 +206,7 @@ const AboutSection = () => {
         {!initialLoading && (
           <>
             <div className="tools-box mt-14 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
-              {tools.map((tool) => (
+              {tools.map((tool, index) => (
                 <a
                   key={tool.id}
                   href={tool.tool_url}
@@ -211,8 +215,8 @@ const AboutSection = () => {
                   className="block"
                   data-aos="fade-up"
                   data-aos-duration="1000"
-                  data-aos-delay={tool.dad}
                   data-aos-once="true"
+                  data-aos-delay={getToolDad(index)}
                 >
                   <div className="group flex items-center gap-2 p-3 border dark:border-zinc-600 border-zinc-300 rounded-md dark:hover:bg-zinc-800 hover:bg-zinc-300">
                     <img
