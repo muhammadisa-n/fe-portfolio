@@ -5,6 +5,12 @@ import Loading from "../../components/Loading";
 import BlurImage from "../../components/BlurImage";
 import noImageDefault from "../../assets/no_image.png";
 import { dummyProjects } from "../../data/projects";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation, Keyboard } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+
+import "swiper/css/navigation";
 export interface Tool {
   id: number;
   name: string;
@@ -15,12 +21,17 @@ export interface ProjectHasTool {
   tool_id: number;
   tool: Tool;
 }
+export interface ProjectImage {
+  id: number;
+  project_id: number;
+  image_id: string;
+  image_url: string;
+  sort_order: number | null;
+}
 export interface Project {
   id: number;
   name: string;
   description: string;
-  image_id: string;
-  image_url: string;
   demo_url: string;
   project_url: string;
   dad: number;
@@ -28,6 +39,7 @@ export interface Project {
   updated_at: string;
   deleted_at: string | null;
   project_has_tool: ProjectHasTool[];
+  images: ProjectImage[];
 }
 
 const ProjectsSection = () => {
@@ -38,6 +50,10 @@ const ProjectsSection = () => {
   const [initialLoading, setInitialLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const projectsRef = useRef<HTMLDivElement>(null);
+  const [preview, setPreview] = useState<{
+    images: ProjectImage[];
+    initialIndex: number;
+  } | null>(null);
 
   const fetchProjects = async (takeCount: number) => {
     try {
@@ -103,10 +119,42 @@ const ProjectsSection = () => {
                   key={project.id}
                   className="p-4 bg-zinc-100 dark:bg-zinc-800 rounded-md"
                 >
-                  <BlurImage
-                    src={project.image_url || noImageDefault}
-                    alt={t(project.name)}
-                  />
+                  {project.images && project.images.length > 0 ? (
+                    <Swiper
+                      modules={[Autoplay, Pagination]}
+                      autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                      }}
+                      pagination={{
+                        clickable: true,
+                      }}
+                      loop={project.images.length > 1}
+                      className="rounded-md overflow-hidden"
+                    >
+                      {project.images.map((image, index) => (
+                        <SwiperSlide key={image.id}>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setPreview({
+                                images: project.images,
+                                initialIndex: index,
+                              })
+                            }
+                            className="block w-full"
+                          >
+                            <BlurImage
+                              src={image.image_url}
+                              alt={t(project.name)}
+                            />
+                          </button>
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  ) : (
+                    <BlurImage src={noImageDefault} alt={t(project.name)} />
+                  )}
                   <div>
                     <h1 className="text-2xl font-bold my-4">
                       {t(project.name)}
@@ -172,6 +220,51 @@ const ProjectsSection = () => {
             )}
           </div>
         </>
+      )}
+      {preview && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setPreview(null)}
+        >
+          <button
+            type="button"
+            className="absolute top-5 right-5 text-white text-4xl z-50"
+            onClick={() => setPreview(null)}
+          >
+            ×
+          </button>
+
+          <div
+            className="w-full max-w-6xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Swiper
+              modules={[Navigation, Pagination, Keyboard]}
+              initialSlide={preview.initialIndex}
+              navigation
+              pagination={{
+                clickable: true,
+              }}
+              keyboard={{
+                enabled: true,
+              }}
+              loop={preview.images.length > 1}
+              className="rounded-lg"
+            >
+              {preview.images.map((image) => (
+                <SwiperSlide key={image.id}>
+                  <div className="flex items-center justify-center">
+                    <img
+                      src={image.image_url}
+                      alt="Project preview"
+                      className="max-w-full max-h-[85vh] object-contain rounded-lg"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
       )}
     </>
   );
