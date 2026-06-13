@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
-import Loading from "../../components/Loading";
 import BlurImage from "../../components/BlurImage";
 import noImageDefault from "../../assets/no_image.png";
 import { dummyProjects } from "../../data/projects";
@@ -9,8 +8,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, Keyboard } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-
 import "swiper/css/navigation";
+import AOS from "aos";
+import ProjectsSkeleton from "../../components/Skeleton/ProjectsSkeleton";
 export interface Tool {
   id: number;
   name: string;
@@ -64,7 +64,7 @@ const ProjectsSection = () => {
       const res = await axios.get(
         `${
           import.meta.env.VITE_API_BASE_URL
-        }/public/projects?take=${takeCount}`,
+        }/public/projects?show=true&take=${takeCount}`,
         {
           headers: { "x-api-key": import.meta.env.VITE_API_KEY },
         }
@@ -101,10 +101,17 @@ const ProjectsSection = () => {
   const getProjectDad = (index: number) => {
     return ((index % 3) + 1) * 100;
   };
+  useEffect(() => {
+    if (!initialLoading) {
+      setTimeout(() => {
+        AOS.refresh();
+      }, 100);
+    }
+  }, [initialLoading, projects]);
   return (
     <>
       {initialLoading ? (
-        <Loading fullscreen={false} />
+        <ProjectsSkeleton />
       ) : (
         <>
           <div className="projects mt-32 py-10" id="projects" ref={projectsRef}>

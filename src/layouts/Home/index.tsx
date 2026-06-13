@@ -4,6 +4,7 @@ import noImageDefault from "../../assets/no_image.png";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import BlurImage from "../../components/BlurImage";
 
 const HomeSection = () => {
   const { t, i18n } = useTranslation();
@@ -105,13 +106,11 @@ const HomeSection = () => {
         </div>
       </div>
 
-      <img
+      <BlurImage
         src={imgSrc || noImageDefault}
         alt="Hero Image"
+        fallbackSrc={HeroImage}
         className="w-[500px] md:ml-auto animate__animated animate__fadeInUp animate__delay-3s"
-        loading="lazy"
-        title="Hero Image"
-        onError={() => setImgSrc(HeroImage)}
       />
     </div>
   );

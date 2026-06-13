@@ -6,10 +6,9 @@ import ContactSection from "../../layouts/Contact";
 import Footer from "../../components/Footer";
 import HomeSection from "../../layouts/Home";
 import Navbar from "../../components/Navbar";
-import Loading from "../../components/Loading";
-import ProjectsSection from "../../layouts/Projects";
 
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+import ProjectsSection from "../../layouts/Projects";
+import HomeSkeleton from "../../components/Skeleton/HomeSkeleton";
 
 function HomePage() {
   const [ready, setReady] = useState(false);
@@ -17,10 +16,7 @@ function HomePage() {
   useEffect(() => {
     let mounted = true;
 
-    Promise.all([
-      i18nReady,
-      sleep(2000),
-    ]).finally(() => {
+    Promise.all([i18nReady]).finally(() => {
       if (mounted) {
         setReady(true);
       }
@@ -32,7 +28,11 @@ function HomePage() {
   }, []);
 
   if (!ready) {
-    return <Loading fullscreen />;
+    return (
+      <div className="container mx-auto px-4">
+        <HomeSkeleton />
+      </div>
+    );
   }
 
   return (

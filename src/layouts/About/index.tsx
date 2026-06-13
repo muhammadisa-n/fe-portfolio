@@ -1,9 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import Loading from "../../components/Loading";
 import { dummyTools } from "../../data/tools";
 import noImageDefault from "../../assets/no_image.png";
+import AOS from "aos";
+import ToolsSkeleton from "../../components/Skeleton/ToolsSkeleton";
 
 export interface Tool {
   id: number;
@@ -36,7 +37,9 @@ const AboutSection = () => {
         }
 
         const response = await axios.get(
-          `${import.meta.env.VITE_API_BASE_URL}/public/tools?take=${takeCount}`,
+          `${
+            import.meta.env.VITE_API_BASE_URL
+          }/public/tools?show=true&take=${takeCount}`,
           {
             headers: { "x-api-key": import.meta.env.VITE_API_KEY },
           }
@@ -157,6 +160,13 @@ const AboutSection = () => {
   const getToolDad = (index: number) => {
     return ((index % 8) + 1) * 100;
   };
+  useEffect(() => {
+    if (!initialLoading) {
+      setTimeout(() => {
+        AOS.refresh();
+      }, 100);
+    }
+  }, [initialLoading, tools]);
   return (
     <div id="about" className="about mt-32 py-10">
       <div
@@ -201,7 +211,7 @@ const AboutSection = () => {
         >
           {t("toolsP4")}
         </p>
-        {initialLoading && <Loading fullscreen={false} />}
+        {initialLoading && <ToolsSkeleton />}
 
         {!initialLoading && (
           <>
